@@ -1,0 +1,304 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?7rr2ed');
+  src:  url('fonts/icomoon.eot?7rr2ed#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?7rr2ed') format('truetype'),
+    url('fonts/icomoon.woff?7rr2ed') format('woff'),
+    url('fonts/icomoon.svg?7rr2ed#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-double-arrow .path1:before {
+  content: "\e945";
+  color: rgb(255, 255, 255);
+}
+.icon-double-arrow .path2:before {
+  content: "\e946";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-briefcase .path1:before {
+  content: "\e900";
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-briefcase .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-briefcase .path3:before {
+  content: "\e902";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-briefcase .path4:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-briefcase .path5:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-danger .path1:before {
+  content: "\e905";
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-danger .path2:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-danger .path3:before {
+  content: "\e907";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-profile-user .path1:before {
+  content: "\e908";
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-profile-user .path2:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-profile-user .path3:before {
+  content: "\e90a";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-profile-user .path4:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-star-animation .path1:before {
+  content: "\e90c";
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-star-animation .path2:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-star-animation .path3:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-star-animation .path4:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-star .path1:before {
+  content: "\e910";
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-star .path2:before {
+  content: "\e911";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-users .path1:before {
+  content: "\e912";
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-users .path2:before {
+  content: "\e913";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-users .path3:before {
+  content: "\e914";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-users .path4:before {
+  content: "\e915";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-users .path5:before {
+  content: "\e916";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-users .path6:before {
+  content: "\e917";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-commeta-top:before {
+  content: "\e918";
+}
+.icon-commeta:before {
+  content: "\e919";
+}
+.icon-dots-vertical:before {
+  content: "\e91a";
+}
+.icon-filled-close-circle:before {
+  content: "\e91b";
+}
+.icon-filled-info-circle:before {
+  content: "\e91c";
+}
+.icon-filled-key:before {
+  content: "\e91d";
+}
+.icon-filled-play:before {
+  content: "\e91e";
+}
+.icon-filled-star:before {
+  content: "\e91f";
+}
+.icon-filled-tick-circle:before {
+  content: "\e920";
+}
+.icon-filled-verified:before {
+  content: "\e921";
+}
+.icon-plus:before {
+  content: "\e922";
+}
+.icon-arrow-lg:before {
+  content: "\e923";
+}
+.icon-arrow-md:before {
+  content: "\e924";
+}
+.icon-arrow-sm:before {
+  content: "\e925";
+}
+.icon-building-tree:before {
+  content: "\e926";
+}
+.icon-buildings:before {
+  content: "\e927";
+}
+.icon-calendar:before {
+  content: "\e928";
+}
+.icon-camera:before {
+  content: "\e929";
+}
+.icon-xmark-circle:before {
+  content: "\e92a";
+}
+.icon-xmark:before {
+  content: "\e92b";
+}
+.icon-edit-square:before {
+  content: "\e92c";
+}
+.icon-edit:before {
+  content: "\e92d";
+}
+.icon-element-equal:before {
+  content: "\e92e";
+}
+.icon-gallery-add:before {
+  content: "\e92f";
+}
+.icon-home:before {
+  content: "\e930";
+}
+.icon-image:before {
+  content: "\e931";
+}
+.icon-info-circle:before {
+  content: "\e932";
+}
+.icon-key:before {
+  content: "\e933";
+}
+.icon-lock:before {
+  content: "\e934";
+}
+.icon-menu:before {
+  content: "\e935";
+}
+.icon-notification-status:before {
+  content: "\e936";
+}
+.icon-people:before {
+  content: "\e937";
+}
+.icon-profile:before {
+  content: "\e938";
+}
+.icon-repeat:before {
+  content: "\e939";
+}
+.icon-search:before {
+  content: "\e93a";
+}
+.icon-filled-star1:before {
+  content: "\e93b";
+}
+.icon-tick-circle:before {
+  content: "\e93c";
+}
+.icon-trash:before {
+  content: "\e93d";
+}
+.icon-undo:before {
+  content: "\e93e";
+}
+.icon-user-octagon:before {
+  content: "\e93f";
+}
+.icon-user-tag:before {
+  content: "\e940";
+}
+.icon-warning-octagon:before {
+  content: "\e941";
+}
+.icon-bulk-user-tag .path1:before {
+  content: "\e942";
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+}
+.icon-bulk-user-tag .path2:before {
+  content: "\e943";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-bulk-user-tag .path3:before {
+  content: "\e944";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}

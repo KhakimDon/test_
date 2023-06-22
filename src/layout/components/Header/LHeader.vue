@@ -1,0 +1,59 @@
+<template>
+  <header
+    class="w-full bg-white py-4 px-5 z-10 flex items-center justify-between sticky top-0 header-shadow"
+  >
+    <div id="header-breadcrumbs"></div>
+    <nav class="flex w-full h-full items-center gap-5 justify-end">
+      <slot name="before-links" />
+      <ul class="flex gap-x-2">
+        <li v-for="(link, index) in links" :key="index">
+          <RouterLink
+            :class="{
+              'bg-gray-200 !text-blue-500': link.to === activeRoute,
+            }"
+            :to="link.to"
+            class="text-slate-700 px-3 py-2 inline-block text-sm transition-all duration-200 hover:bg-gray-200 rounded-md"
+            >{{ link.title }}
+          </RouterLink>
+        </li>
+      </ul>
+      <slot name="after-links"></slot>
+      <HeaderProfile :profile-items="profileItems" :user="user" />
+    </nav>
+  </header>
+</template>
+<script lang="ts" setup>
+import HeaderProfile from "@/layout/components/Header/Profile.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+interface Props {
+  links?: {
+    title: string;
+    to: string;
+  }[];
+  activeRoute?: string;
+}
+
+defineProps<Props>();
+
+const user = {
+  avatar:
+    "https://preview.keenthemes.com/metronic8/demo1/assets/media/avatars/300-1.jpg",
+  fullName: "Olimjonov Ibrohim",
+  subtitle: "Developer",
+};
+
+const profileItems = [
+  {
+    title: t("help"),
+    event: "on-profile",
+  },
+];
+</script>
+
+<style scoped>
+.header-shadow {
+  box-shadow: 0 -4px 58px #0000000f !important;
+}
+</style>

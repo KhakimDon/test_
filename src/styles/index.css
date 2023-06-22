@@ -1,0 +1,65 @@
+@import url("../assets/fonts/fonts.css");
+@import url("./icomoon/style.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer ui {
+    .transition-300 {
+        @apply transition-all duration-300;
+    }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background: #f7faf8;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.flex-y-center{
+    display: flex;
+    align-items: center;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-center-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.fade-enter-active {
+    animation: Fade 0.2s ease;
+}
+.fade-leave-active {
+    animation: Fade 200ms ease-in reverse forwards;
+}
+
+@keyframes Fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
