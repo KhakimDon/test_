@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-[335px]">
     <p class="text-3xl leading-130 font-semibold text-dark text-center">
       {{ $t("enter_system") }}
     </p>
