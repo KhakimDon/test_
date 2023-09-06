@@ -33,6 +33,7 @@ import {
 } from "@ckeditor/ckeditor5-image";
 import { Base64UploadAdapter } from "@ckeditor/ckeditor5-upload";
 import { Table, TableToolbar } from "@ckeditor/ckeditor5-table";
+import {MediaEmbed} from "@ckeditor/ckeditor5-media-embed";
 
 const emit = defineEmits<{
   (e: "editor", value: string): void;
@@ -62,6 +63,7 @@ const editorConfig = ref({
     ImageResizeHandles,
     Table,
     TableToolbar,
+      MediaEmbed
   ],
 
   toolbar: {
@@ -76,7 +78,7 @@ const editorConfig = ref({
       "uploadImage",
       "blockQuote",
       "insertTable",
-
+      "mediaEmbed",
       "undo",
       "redo",
     ],
