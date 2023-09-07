@@ -1,62 +1,53 @@
 <template>
-  <div class="p-6 bg-white rounded-xl">
-    <slot name="header" />
-    <div
-      class="relative w-full max-w-full overflow-x-auto"
-      :class="wrapperClass"
-    >
-      <table class="w-full c-table">
-        <thead>
-          <Transition name="dropdown" mode="out-in">
-            <tr v-if="!loading">
-              <th
-                v-for="(h, index) in head"
-                :key="index"
-                class="p-3 bg-white-400 first:rounded-l-md last:rounded-r-md text-xs text-left last:text-right first:pl-4 last:pr-4 text-gray font-semibold"
-                :class="[{ 'w-[5%]': h.key === '_index' }, thClass]"
-              >
-                {{ h.title }}
-              </th>
-            </tr>
-          </Transition>
-        </thead>
+  <div class="relative w-full max-w-full overflow-x-auto" :class="wrapperClass">
+    <table class="w-full c-table">
+      <thead>
         <Transition name="dropdown" mode="out-in">
-          <tbody v-if="!loading">
-            <tr
-              v-for="(d, index) in data"
+          <tr v-if="!loading">
+            <th
+              v-for="(h, index) in head"
               :key="index"
-              class="border-b last:border-none border-gray-400 relative"
-              :class="[
-                bodyTrClass,
-                { 'bg-white-500': index % 2 !== 0 },
-                { 'even:bg-white-50': type === 'filled' },
-              ]"
+              class="p-3 bg-white-400 first:rounded-l-md last:rounded-r-md text-xs text-left last:text-right first:pl-4 last:pr-4 text-gray font-semibold"
+              :class="[{ 'w-[5%]': h.key === '_index' }, thClass]"
             >
-              <td
-                v-for="(h, idx) in head"
-                :key="idx"
-                class="py-5 px-4 text-xs text-dark"
-                :class="[tdClass]"
-              >
-                <div v-if="idx === 0" class="w-1 h-10 absolute left-0 top-2" />
-                <slot :name="h.key" :data="{ ...d, _index: getIndex(index) }">
-                  {{ h.key === "_index" ? getIndex(index) : d[h.key] }}
-                </slot>
-              </td>
-            </tr>
-          </tbody>
+              {{ h.title }}
+            </th>
+          </tr>
         </Transition>
-      </table>
-      <div
-        v-if="loading"
-        class="w-full h-[500px] flex items-center justify-center"
-      >
-        <div class="spinner"></div>
-      </div>
+      </thead>
+      <Transition name="dropdown" mode="out-in">
+        <tbody v-if="!loading">
+          <tr
+            v-for="(d, index) in data"
+            :key="index"
+            class="border-b last:border-none border-gray-400 relative"
+            :class="[
+              bodyTrClass,
+              { 'bg-white-500': index % 2 !== 0 },
+              { 'even:bg-white-50': type === 'filled' },
+            ]"
+          >
+            <td
+              v-for="(h, idx) in head"
+              :key="idx"
+              class="py-5 px-4 text-xs text-dark"
+              :class="[tdClass]"
+            >
+              <div v-if="idx === 0" class="w-1 h-10 absolute left-0 top-2" />
+              <slot :name="h.key" :data="{ ...d, _index: getIndex(index) }">
+                {{ h.key === "_index" ? getIndex(index) : d[h.key] }}
+              </slot>
+            </td>
+          </tr>
+        </tbody>
+      </Transition>
+    </table>
+    <div
+      v-if="loading"
+      class="w-full h-[500px] flex items-center justify-center"
+    >
+      <div class="spinner"></div>
     </div>
-    <Transition name="dropdown" mode="out-in">
-      <slot name="footer" v-if="!loading" />
-    </Transition>
   </div>
 </template>
 

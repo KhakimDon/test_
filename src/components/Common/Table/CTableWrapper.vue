@@ -1,22 +1,18 @@
 <template>
-  <CTable
-    :type="type"
-    :total="data?.length"
-    :data="data"
-    :head="head"
-    :current-page="currentPage"
-    :loading="loading"
-    :limit="limit"
-  >
-    <template #header>
-      <CTableHeader
-        :title="title"
-        :subtitle="subtitle"
-        @search="handleSearch"
-      />
-    </template>
-    <template #footer>
+  <div>
+    <CTableHeader :title="title" :subtitle="subtitle" @search="handleSearch" />
+    <CTable
+      :type="type"
+      :total="data?.length"
+      :data="data"
+      :head="head"
+      :current-page="currentPage"
+      :loading="loading"
+      :limit="limit"
+    />
+    <Transition name="dropdown" mode="out-in">
       <CTableFooter
+        v-if="!loading"
         :total="total"
         :items-per-page="itemsPerPage"
         :limit="limit"
@@ -24,8 +20,8 @@
         @items-per-page="handlePerPage"
         @page-change="handlePage"
       />
-    </template>
-  </CTable>
+    </Transition>
+  </div>
 </template>
 
 <script setup lang="ts">
