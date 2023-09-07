@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         white: {
           DEFAULT: "#FFFFFF",
+          50: "#FBFBFB",
           100: "#E5E7EE",
           200: "#ECF3FA",
           300: "#F0F0F5",
@@ -67,6 +68,9 @@ module.exports = {
         "max-1-max": "max-content 1fr max-content",
       },
       lineHeight: {
+        14: "14px",
+        20: "20px",
+        23: "23px",
         110: "110%",
         130: "130%",
         140: "140%",

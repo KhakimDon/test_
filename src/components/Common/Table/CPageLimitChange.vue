@@ -1,9 +1,8 @@
 <template>
-  <div class="flex-y-center gap-4">
-    <p class="text-xs leading-5 font-normal text-dark">{{ $t("show") }}</p>
+  <div class="flex-y-center gap-2">
+    <p class="text-xs leading-20 font-normal text-dark">{{ $t("show") }}</p>
     <Select
-      class="h-8 w-[58px]"
-      selected-option-styles="!py-1.5 bg-white-100"
+      selected-option-styles="!py-2 !px-2.5 bg-white-100"
       v-bind="{ options }"
       value-key="value"
       :disabled="disabled"

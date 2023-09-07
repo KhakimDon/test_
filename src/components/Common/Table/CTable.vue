@@ -3,10 +3,10 @@
     <slot name="header">
       <header class="flex justify-between mb-6">
         <div>
-          <h2 class="text-xl leading-[23px] font-medium text-dark">
+          <h2 class="text-xl leading-23 font-medium text-dark-100">
             {{ title }}
           </h2>
-          <p class="text-xs leading-[14px] font-normal text-gray mt-1.5">
+          <p class="text-xs leading-14 font-normal text-gray-200 mt-1.5">
             {{ subtitle }}
           </p>
         </div>
@@ -15,23 +15,30 @@
             <slot name="beforeSearch" />
           </div>
           <Input
+            v-model="search"
             v-if="!noSearch"
             :placeholder="$t('search')"
             @update:modelValue="$emit('search', $event)"
-          />
-          <!--          <Input-->
-          <!--            v-if="!noSearch"-->
-          <!--            :placeholder="$t(searchPlaceholder)"-->
-          <!--            v-model="search"-->
-          <!--          />-->
-          <div class="shrink-0">
+          >
+            <template #prefix>
+              <span class="icon-search"></span>
+            </template>
+            <template #suffix>
+              <button
+                :class="{ '!opacity-100 !visible': search?.length }"
+                class="icon-xmark text-dark transition-200 hover:text-red opacity-0 invisible"
+                @click="clearSearch"
+              />
+            </template>
+          </Input>
+          <div class="flex-shrink-0">
             <slot name="afterSearch" />
           </div>
         </div>
       </header>
     </slot>
     <div class="w-full max-w-full overflow-x-auto" :class="wrapperClass">
-      <table class="w-full min-w-max c-table">
+      <table class="w-full c-table">
         <thead>
           <tr>
             <th
@@ -48,13 +55,13 @@
           <tr
             v-for="(d, index) in data"
             :key="index"
-            class="border-b last:border-none border-gray-300 relative"
+            class="border-b last:border-none border-gray-400 relative even:bg-white-50"
             :class="[bodyTrClass, { 'bg-white-500': index % 2 !== 0 }]"
           >
             <td
               v-for="(h, idx) in head"
               :key="idx"
-              class="py-5 px-4 text-xs"
+              class="py-5 px-4 text-xs text-dark"
               :class="[tdClass]"
             >
               <div
@@ -81,16 +88,17 @@
         />
       </div>
     </div>
-    <div class="flex-center-between mt-6">
-      <div>
-        <slot name="footer" />
-      </div>
-      <div class="flex-y-center gap-5">
-        <CommonPageLimitChange v-model:itemsPerPage="itemsCountInTable" />
+    <div v-if="!noFooter" class="flex-center-between py-6">
+      <div v-if="!noPagination" class="w-full flex-center-between gap-5">
+        <CommonPageLimitChange
+          v-model:itemsPerPage="itemsCountInTable"
+          v-if="!noLimit && total > 5"
+        />
         <CommonPagination
-          v-bind="{ total, currentPage, limit }"
+          v-if="totalPages > 1"
           pagination-buttons
-          @input="changePagination"
+          v-bind="{ total, currentPage, limit }"
+          @input="$emit('page-change', $event)"
         />
       </div>
     </div>
@@ -104,7 +112,7 @@ import CommonPreloader from "@/components/CPreloader.vue";
 import Input from "@/components/Form/Input/FInput.vue";
 import CommonPagination from "@/components/Common/Table/CPagination.vue";
 import CommonPageLimitChange from "@/components/Common/Table/CPageLimitChange.vue";
-import { computed, ref, WritableComputedRef } from "vue";
+import { computed, ref, WritableComputedRef, watch } from "vue";
 
 interface Props {
   head: ITableHead[];
@@ -112,6 +120,7 @@ interface Props {
   subtitle?: string;
 
   searchPlaceholder?: string;
+  search?: string;
 
   thClass?: TClassName;
   bodyTrClass?: TClassName;
@@ -128,25 +137,43 @@ interface Props {
   limit: number;
   currentPage: number;
   itemsPerPage: number;
+  noPagination?: boolean;
+  noLimit?: boolean;
+  noFooter?: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   currentPage: 1,
-  limit: 10,
+  limit: 5,
   statusKey: "active",
   itemsPerPage: 10,
+  noFooter: false,
+  noPagination: false,
 });
 
 const emit = defineEmits(["search", "itemsPerPage"]);
 
+const search = ref();
+
+const totalPages = computed(() => {
+  if (props.total < props.limit) {
+    return 1;
+  } else {
+    return props.total / props.limit;
+  }
+});
+
 function getIndex(index: number) {
   return (props?.currentPage - 1) * props?.limit + index + 1;
 }
-
+function clearSearch() {
+  search.value = "";
+}
 const itemStatus = (row: any) => {
+  if (props?.statusKey) return;
   const nestedKeys = props.statusKey.split(".");
   const lastKey = nestedKeys.pop();
-  const nestedObj = nestedKeys.reduce((a, prop) => a[prop], row);
-  return props.statusColors[nestedObj[lastKey as keyof typeof nestedObj]];
+  const nestedObj = nestedKeys?.reduce((a, prop) => a[prop], row);
+  return props?.statusColors[nestedObj[lastKey as keyof typeof nestedObj]];
 };
 
 const inputItemsPerPage = ref(10);
@@ -160,6 +187,21 @@ const itemsCountInTable: WritableComputedRef<number> = computed({
     emit("itemsPerPage", value);
   },
 });
+
+watch(
+  () => search.value,
+  () => {
+    emit("search", search.value);
+  }
+);
+
+watch(
+  () => props?.search,
+  () => {
+    search.value = props?.search;
+  },
+  { immediate: true }
+);
 </script>
 
 <style>

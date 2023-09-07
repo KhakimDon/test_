@@ -6,7 +6,7 @@
       tabindex="1"
       :class="[
         selectedOptionStyles,
-        error ? '!border-red' : 'focus-within:border-blue',
+        error ? '!border-red' : 'focus-within:border-blue-100',
         { 'focus-within:border-gray-100': disabled },
       ]"
       @click="toggleSelect(!showOptions)"
@@ -15,14 +15,14 @@
         <p
           tabindex="1"
           v-if="!value"
-          class="text-dark select-none text-sm"
+          class="text-dark-100 select-none text-sm"
           :class="{ '!text-gray': disabled }"
         >
           {{ placeholder }}
         </p>
         <p
           v-else
-          class="select-none text-sm text-dark"
+          class="select-none text-sm text-dark-100 font-medium"
           tabindex="1"
           :class="{ '!text-gray': disabled }"
         >
@@ -30,7 +30,7 @@
         </p>
         <slot name="chevron">
           <span
-            class="text-dark icon-arrow-sm transition-all duration-200 inline-block shrink-0 ml-1"
+            class="text-dark-100 icon-arrow-sm transition-all duration-200 inline-block shrink-0 ml-1"
             :class="[{ 'rotate-180': showOptions }]"
           >
           </span>
