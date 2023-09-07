@@ -2,12 +2,12 @@ import { RouteRecordRaw } from "vue-router";
 
 const routes: Readonly<RouteRecordRaw[]> = [
   {
-    path: "/",
-    name: "PDashboard",
+    path: "/profile",
+    name: "PProfile",
     meta: {
       layout: "default",
     },
-    component: () => import("@/modules/Dashboard/pages/PDashboard.vue"),
+    component: () => import("@/modules/Profile/pages/PProfile.vue"),
   },
 ];
 

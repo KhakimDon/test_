@@ -15,7 +15,7 @@
         >
           <path
             d="M10.4721 4.47157C10.7324 4.21122 10.7324 3.78911 10.4721 3.52876C10.2117 3.26841 9.7896 3.26841 9.52925 3.52876L5.52925 7.52876C5.27686 7.78114 5.26803 8.18753 5.50922 8.45065L9.17588 12.4506C9.42468 12.7221 9.84639 12.7404 10.1178 12.4916C10.3892 12.2428 10.4076 11.8211 10.1588 11.5497L6.92341 8.02021L10.4721 4.47157Z"
-            fill="#8E9BA8"
+            fill="#919299"
             class="group-hover:!fill-white transition-300"
           />
         </svg>
@@ -50,7 +50,7 @@
         >
           <path
             d="M5.52794 4.47157C5.26759 4.21122 5.26759 3.78911 5.52794 3.52876C5.78829 3.26841 6.2104 3.26841 6.47075 3.52876L10.4708 7.52876C10.7231 7.78114 10.732 8.18754 10.4908 8.45065L6.82412 12.4506C6.57532 12.7221 6.15361 12.7404 5.8822 12.4916C5.61079 12.2428 5.59245 11.8211 5.84124 11.5497L9.07659 8.02021L5.52794 4.47157Z"
-            fill="#8E9BA8"
+            fill="#919299"
             class="group-hover:!fill-white transition-300"
           />
         </svg>
@@ -74,8 +74,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   itemClass:
-    "rounded-md w-7 h-7 flex-center transition-300 hover:!bg-blue hover:!text-white text-sm leading-4 text-gray",
-  activeClass: "!bg-blue !text-white",
+    "rounded-md w-7 h-7 flex-center transition-300 hover:!bg-blue-100 hover:!text-white text-sm leading-4 text-gray",
+  activeClass: "!bg-blue-100 !text-white",
 });
 const emit = defineEmits(["change", "input"]);
 const pageCount = computed(() => Math.ceil(props.total / props.limit));
