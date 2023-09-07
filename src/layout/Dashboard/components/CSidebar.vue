@@ -29,7 +29,7 @@
           @click="isOpen = !isOpen"
         >
           <span
-            :class="{ '!rotate-180': isOpen }"
+            :class="{ '!rotate-180': !isOpen }"
             class="flex items-center transition-300"
           >
             <svg
@@ -173,7 +173,7 @@
         </template>
       </i18n-t>
       <p class="text-xs leading-normal text-blue-200 mt-3">
-        {{ $t("version") }} 7.1.2
+        {{ $t("version") }} {{ CONFIG.APP_VERSION }}
       </p>
       <!--      <RouterLink-->
       <!--        class="text-xs underline hover:opacity-60 transition-300"-->
@@ -233,4 +233,8 @@ onMounted(() => {
 function isActiveSub(arr: any[]) {
   return arr.find((el: any) => el?.route === location.value);
 }
+
+const CONFIG = {
+  APP_VERSION: import.meta.env.VITE_APP_VERSION,
+};
 </script>

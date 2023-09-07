@@ -1,5 +1,6 @@
 @import url("../fonts/fonts.css");
 @import url("./_toastification.css");
+@import url("./_transitions.css");
 
 @tailwind base;
 @tailwind components;
@@ -81,21 +82,4 @@ select:-webkit-autofill:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-
-.fade-enter-active {
-    animation: Fade 0.2s ease;
-}
-.fade-leave-active {
-    animation: Fade 200ms ease-in reverse forwards;
-}
-
-@keyframes Fade {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }

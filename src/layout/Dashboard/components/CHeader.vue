@@ -1,10 +1,12 @@
 <template>
   <header
-    class="w-full bg-white py-4 px-5 z-10 flex items-center justify-between sticky top-0 header-shadow"
+    class="w-full bg-white py-4 px-6 z-10 flex items-center justify-between sticky top-0 header-shadow"
   >
     <div id="header-breadcrumbs"></div>
+
     <nav class="flex w-full h-full items-center gap-5 justify-end">
       <slot name="before-links" />
+
       <ul class="flex gap-x-2">
         <li v-for="(link, index) in links" :key="index">
           <RouterLink
@@ -17,14 +19,18 @@
           </RouterLink>
         </li>
       </ul>
+
       <slot name="after-links"></slot>
-      <HeaderProfile :profile-items="profileItems" :user="user" />
+
+      <CLanguageSwitcher />
+      <CProfileDropdown :profile-items="profileItems" :user="user" />
     </nav>
   </header>
 </template>
 <script lang="ts" setup>
-import HeaderProfile from "@/layout/Dashboard/components/CProfileDropdown.vue";
+import CProfileDropdown from "@/layout/Dashboard/components/CProfileDropdown.vue";
 import { useI18n } from "vue-i18n";
+import CLanguageSwitcher from "@/components/CLanguageSwitcher.vue";
 
 const { t } = useI18n();
 interface Props {

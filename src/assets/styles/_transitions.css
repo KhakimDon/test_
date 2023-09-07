@@ -1,0 +1,41 @@
+.transition-200 {
+    transition: all 200ms ease-in-out;
+}
+
+.transition-300 {
+    transition: all 300ms ease-in-out;
+}
+
+.fade-enter-active {
+    animation: Fade 0.2s ease;
+}
+.fade-leave-active {
+    animation: Fade 200ms ease-in reverse forwards;
+}
+
+@keyframes Fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdown-enter-active {
+    animation: Fade 0.2s ease;
+}
+.dropdown-leave-active {
+    animation: Fade 200ms ease-in reverse forwards;
+}
+
+@keyframes Fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+
+    }
+}
