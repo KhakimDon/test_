@@ -35,7 +35,7 @@
 
     <ul>
       <li
-        class="transition-200 p-3 flex flex-col gap-1 text-sm w-full text-dark hover:bg-white-100/[0.24]"
+        class="transition-200 py-4 pl-[33px] pr-3 flex flex-col gap-1 text-sm w-full text-dark hover:bg-white-100/[0.24]"
         v-for="(item, idx) in dropdownItems"
         :key="idx"
         :class="item?.styles"
@@ -89,7 +89,7 @@ const dropdownItems: IDropdownItem[] = [
   },
   {
     label: t("log_out"),
-    styles: "text-red-500 hover:bg-red-50",
+    styles: "text-red-500 hover:!bg-red-50",
     action: () => router.push({ name: "Help" }),
   },
 ];
