@@ -2,7 +2,7 @@
   <div>
     <button class="flex-y-center gap-2 group" @click="$emit('back')">
       <i
-        class="icon-chevron text-2xl block text-dark rotate-180 transition group-hover:-translate-x-1"
+        class="icon-chevron text-2xl block text-dark rotate-90 transition group-hover:-translate-x-1"
       />
       <span class="text-2xl leading-130 font-semibold text-dark">
         {{ $t("enter_code") }}

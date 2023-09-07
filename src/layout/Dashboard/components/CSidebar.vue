@@ -118,7 +118,7 @@
                 v-if="isOpen || hovered"
                 :class="[
                   {
-                    '!rotate-90 ': index === openIndex,
+                    '!-rotate-90 ': index !== openIndex,
                   },
                 ]"
                 class="icon-chevron text-xl leading-5 transition-300 text-gray"

@@ -26,7 +26,7 @@ const router = useRouter();
 
 const phone = ref("+998996753211");
 
-const step = ref(1);
+const step = ref(2);
 
 const form = useForm(
   {
