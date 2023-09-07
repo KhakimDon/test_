@@ -2,6 +2,7 @@
   <div class="flex-y-center gap-2">
     <p class="text-xs leading-20 font-normal text-dark">{{ $t("show") }}</p>
     <Select
+      selected-styles="!text-dark-100 mr-1"
       selected-option-styles="!py-2 !px-2.5 bg-white-100"
       v-bind="{ options }"
       value-key="value"
