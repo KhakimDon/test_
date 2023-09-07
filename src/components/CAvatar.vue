@@ -50,7 +50,7 @@ watch(
 
 const avatarSize = computed(() => {
   const sizes: Record<EAvatarSize, string> = {
-    [EAvatarSize.MD]: "w-20 h-20",
+    [EAvatarSize.MD]: "w-[50px] h-[50px]",
     [EAvatarSize.SM]: "w-10 h-10",
   };
 

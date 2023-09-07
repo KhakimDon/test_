@@ -7,8 +7,8 @@
     <Transition name="dropdown">
       <div
         v-if="show"
-        class="absolute right-0 w-max min-w-full bg-white rounded-md overflow-hidden z-10 shadow-[0_6px_40px_0_rgba(18,28,37,0.20)] top-full"
-        :class="[bodyClass]"
+        class="absolute right-0 w-max min-w-full bg-white rounded-md overflow-hidden z-10 shadow-select top-[calc(100%+12px)] cursor-pointer"
+        :class="bodyClass"
         @click.stop="toggleShow"
       >
         <slot :data="{ show }" />

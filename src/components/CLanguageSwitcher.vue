@@ -11,27 +11,26 @@
           </span>
           <i
             class="icon-chevron transition-200 text-xs inline-block"
-            :class="show ? '-rotate-90' : 'rotate-90'"
+            :class="{ 'rotate-180': show }"
           ></i>
         </div>
       </div>
     </template>
 
-    <div class="bg-white rounded-md profile-dropdown p-3 flex flex-col gap-2">
-      <button
+    <ul>
+      <li
         v-for="(item, index) in languages"
         :key="index"
-        class="px-4 py-2 transition-300 text-left rounded-md text-sm text-gray-650 hover:text-blue-200 leading-5 flex-center-between"
+        class="transition-200 p-3 text-sm text-dark hover:bg-white-100/[0.24] flex-center-between"
         @click="changeLocale(item.value)"
       >
-        {{ item.label }}
-        <img
-          class="w-4 h-4 rounded-full object-cover"
-          :src="item.icon"
-          :alt="item.label"
-        />
-      </button>
-    </div>
+        <span>{{ item.label }}</span>
+        <i
+          v-if="item.value === currentLanguage?.value"
+          class="icon-tick text-blue-100"
+        ></i>
+      </li>
+    </ul>
   </CDropdown>
 </template>
 
