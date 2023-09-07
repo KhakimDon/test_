@@ -41,7 +41,7 @@
     <div class="w-full pl-6 mt-7">
       <hr class="border-white-100" />
     </div>
-    <CTab v-model="activeTab" />
+    <CTab v-model="activeTab" :list="tabList" />
   </CCard>
 </template>
 <script setup lang="ts">
@@ -51,12 +51,14 @@ import { ref } from "vue";
 import CButton from "@/components/Common/CButton.vue";
 import CProfileDashDetail from "@/components/Profile/CProfileDashDetail.vue";
 import { formatPhoneNumber } from "@/utils";
+import { ITabItem } from "@/components/Tab/CTab.types";
 
 interface Props {
   image: string;
   title: string;
   date: string;
   subTitle?: string;
+  tabList: ITabItem[];
 }
 
 withDefaults(defineProps<Props>(), {
