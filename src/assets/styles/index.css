@@ -79,6 +79,10 @@ select:-webkit-autofill:focus {
     align-items: center;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 button {
     cursor: pointer;
 }
