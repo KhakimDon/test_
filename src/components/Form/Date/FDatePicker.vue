@@ -133,7 +133,10 @@ const pickerValue = computed(() => {
     );
     return [new Date(formattedStart), new Date(formattedEnd)];
   } else {
-    return new Date(props.modelValue);
+    const formattedDate = dayjs(
+      props.modelValue.split(".").reverse().join("-")
+    ).format("YYYY-MM-DD");
+    return new Date(formattedDate);
   }
 });
 </script>
