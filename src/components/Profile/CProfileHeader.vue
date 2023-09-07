@@ -58,7 +58,7 @@ interface Props {
   title: string;
   date: string;
   subTitle?: string;
-  tabList: ITabItem[];
+  tabList?: ITabItem[];
 }
 
 withDefaults(defineProps<Props>(), {
