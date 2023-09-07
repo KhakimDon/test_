@@ -141,8 +141,8 @@ const handleUploader = (el: string | number, target) => {
         });
       }
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      // Todo: Toast show
     });
 };
 const getFile = (type: string) => {

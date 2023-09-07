@@ -38,12 +38,9 @@ import { useMounted } from "@/composables/useMounted";
 import SBreadcrumb from "@/components/Common/CBreadcrumb.vue";
 import { useI18n } from "vue-i18n";
 import { ref } from "vue";
-import TimePicker from "@/components/Form/TimePicker/FDatePicker.vue";
 import CommonTable from "@/components/Common/Table/CTable.vue";
 import { head, tableData } from "@/data";
-import Input from "@/components/Form/Input/FInput.vue";
 import RichText from "@/components/CRichText.vue";
-import CDialog from "@/components/Common/Dialog/CDialog.vue";
 
 const { mounted } = useMounted();
 const { t } = useI18n();
@@ -56,15 +53,11 @@ const routes = [
   },
 ];
 
-const showDialog = ref(false);
-
 setTimeout(() => {
   loading.value = false;
 }, 2000);
 
 const changePerPage = (value: number) => {
-  console.log(value, "changePerPage");
+  // Todo: Event
 };
 </script>
-
-<style scoped></style>

@@ -122,11 +122,11 @@ watch(
     emit("change");
   }
 );
-function first() {
-  if (!hasFirst.value) {
-    emit("input", 1);
-  }
-}
+// function first() {
+//   if (!hasFirst.value) {
+//     emit("input", 1);
+//   }
+// }
 function prev() {
   if (!hasFirst.value) {
     emit("input", props.currentPage - 1);
@@ -142,11 +142,11 @@ function next() {
     emit("input", props.currentPage + 1);
   }
 }
-function last() {
-  if (!hasLast.value) {
-    emit("input", pageCount.value);
-  }
-}
+// function last() {
+//   if (!hasLast.value) {
+//     emit("input", pageCount.value);
+//   }
+// }
 onMounted(() => {
   if (props.currentPage > pageCount.value) {
     emit("change");

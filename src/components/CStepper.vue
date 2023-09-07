@@ -51,7 +51,7 @@ export interface Props {
   }[];
 }
 const props = withDefaults(defineProps<Props>(), {
-  steps: [
+  steps: () => [
     {
       title: "Telefon raqamingiz",
       text: "Telefon raqamingizni tasdiqlang",

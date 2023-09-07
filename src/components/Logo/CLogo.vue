@@ -36,9 +36,4 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   variant: "light",
 });
-
-const variants: Record<TMainLogoVariants, string> = {
-  light: "!fill-blue",
-  dark: "!fill-dark",
-};
 </script>

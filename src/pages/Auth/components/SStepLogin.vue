@@ -81,7 +81,6 @@ function expiredMethod() {
 }
 
 function submit() {
-  console.log("submit");
   form.$v.value.$touch();
   if (captchaToken?.value) {
     if (!form.$v.value.$invalid) {
