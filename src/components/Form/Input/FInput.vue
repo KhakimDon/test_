@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'h-10 inline-flex items-center justify-start relative k-transition transition-all duration-300 bg-gray-500 rounded-lg border border-transparent overflow-hidden w-full py-[11px] px-3 ',
+      'transition-200 h-10 inline-flex items-center justify-start relative bg-gray-500 rounded-lg border border-transparent overflow-hidden w-full py-[11px] px-3 ',
       error
         ? '!border-red'
         : 'focus-within:bg-transparent focus-within:border-blue-200',
@@ -21,8 +21,8 @@
       class="w-full"
       ref="kInput"
       @input="handleInput"
-      @blur="$emit('blur')"
-      @focus="$emit('focus')"
+      @blur="emit('blur')"
+      @focus="emit('focus')"
     />
 
     <span :class="[suffixClass]">
@@ -33,6 +33,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { TClassName } from "@/types/common";
 
 export interface Props {
   type?: string;
@@ -44,15 +45,18 @@ export interface Props {
   minlength?: number;
   max?: number;
   min?: number;
-  inputClass?: string | string[];
-  prefixClass?: string;
-  suffixClass?: string;
+  inputClass?: TClassName;
+  prefixClass?: TClassName;
+  suffixClass?: TClassName;
   autocomplete?: boolean;
 }
 
-const emit = defineEmits<{
+interface Emits {
+  (e: "focus"): void;
+  (e: "blur"): void;
   (e: "update:modelValue", value: Props["modelValue"]): void;
-}>();
+}
+const emit = defineEmits<Emits>();
 
 const handleInput = (e: { target: HTMLInputElement }) => {
   emit("update:modelValue", e.target.value);

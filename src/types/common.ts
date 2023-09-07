@@ -1,8 +1,10 @@
-export type TClassName =
+type TClass =
   | string
   | string[]
   | Record<string, boolean>
   | Record<string, boolean>[];
+
+export type TClassName = TClass | TClass[];
 
 export interface ICompany {
   title: string;
@@ -21,16 +23,4 @@ export interface ICompany {
   email: string;
   phone: string;
   address: string;
-}
-
-export interface TBlog {
-  title: string;
-  image: string;
-  created_at: string;
-}
-
-export interface IMedia {
-  type: "image" | "video";
-  url: string;
-  thumbnail?: string;
 }
