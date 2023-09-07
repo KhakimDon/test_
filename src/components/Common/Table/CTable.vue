@@ -1,8 +1,6 @@
 <template>
   <div class="p-6 bg-white rounded-xl">
-    <Transition name="dropdown" mode="out-in">
-      <slot name="header" v-if="!loading" />
-    </Transition>
+    <slot name="header" />
     <div
       class="relative w-full max-w-full overflow-x-auto"
       :class="wrapperClass"
@@ -27,8 +25,12 @@
             <tr
               v-for="(d, index) in data"
               :key="index"
-              class="border-b last:border-none border-gray-400 relative even:bg-white-50"
-              :class="[bodyTrClass, { 'bg-white-500': index % 2 !== 0 }]"
+              class="border-b last:border-none border-gray-400 relative"
+              :class="[
+                bodyTrClass,
+                { 'bg-white-500': index % 2 !== 0 },
+                { 'even:bg-white-50': type === 'filled' },
+              ]"
             >
               <td
                 v-for="(h, idx) in head"
@@ -63,6 +65,8 @@ import { TClassName } from "@/types/common";
 import { ITableHead } from "@/types/components/table";
 
 interface Props {
+  type?: "filled" | "transparent";
+
   head: ITableHead[];
 
   thClass?: TClassName;
@@ -91,15 +95,28 @@ function getIndex(index: number) {
 .spinner {
   width: 56px;
   height: 56px;
+  display: grid;
   border-radius: 50%;
-  background: radial-gradient(farthest-side, #52618f 94%, #0000) top/9px 9px
-      no-repeat,
-    conic-gradient(#0000 30%, #52618f);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
-  animation: spinner-c7wet2 1s infinite linear;
+  -webkit-mask: radial-gradient(farthest-side, #0000 40%, #52618f 41%);
+  background: linear-gradient(0deg, #52618f 50%, #52618f 0) center/4.5px 100%,
+    linear-gradient(90deg, #52618f 50%, #52618f 0) center/100% 4.5px;
+  background-repeat: no-repeat;
+  animation: spinner-d3o0rx 1s infinite steps(12);
 }
-
-@keyframes spinner-c7wet2 {
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
+.spinner::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+@keyframes spinner-d3o0rx {
   100% {
     transform: rotate(1turn);
   }

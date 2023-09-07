@@ -23,9 +23,6 @@ interface Props {
   limit: number;
   currentPage: number;
   itemsPerPage: number;
-  noPagination?: boolean;
-  noLimit?: boolean;
-  noFooter?: boolean;
 }
 const props = defineProps<Props>();
 const emit = defineEmits(["itemsPerPage"]);
