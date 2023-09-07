@@ -28,5 +28,6 @@
     "article_authors": "Статьи авторов"
   },
   "select": "Выбрать",
-  "supported_by": "Supported by {logo}"
+  "supported_by": "Supported by {logo}",
+  "dd_mm_yyyy": "дд / мм / гггг"
 }

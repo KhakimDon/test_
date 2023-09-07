@@ -3,6 +3,7 @@ import "vue-toastification/dist/index.css";
 import { App } from "vue";
 import Toast from "vue-toastification";
 import CommonToast from "@/components/CToast.vue";
+import Maska from "maska";
 
 export default function definePlugins(app: App): App {
   //Toast Notification
@@ -23,6 +24,8 @@ export default function definePlugins(app: App): App {
     newestOnTop: true,
     component: CommonToast,
   };
+
+  app.use(Maska);
   app.use(Toast, options);
   return app;
 }

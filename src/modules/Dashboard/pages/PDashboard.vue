@@ -29,8 +29,6 @@
       <!--          <div>Footer</div>-->
       <!--        </template>-->
       <!--      </CommonTable>-->
-
-      <FInput placeholder="Hello" />
     </div>
   </div>
 </template>
@@ -38,9 +36,8 @@
 <script setup lang="ts">
 import { useMounted } from "@/composables/useMounted";
 import SBreadcrumb from "@/components/Common/CBreadcrumb.vue";
-import FInput from "@/components/Form/Input/FInput.vue";
 import { useI18n } from "vue-i18n";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const { mounted } = useMounted();
 const { t } = useI18n();
@@ -51,4 +48,6 @@ const routes = computed(() => [
     route: "/",
   },
 ]);
+
+const value = ref();
 </script>
