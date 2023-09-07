@@ -1,13 +1,13 @@
-import * as pkg from 'vue-toastification'
-import CommonToast from "@/components/Common/CommonToast.vue";
-const { useToast } = pkg
+import * as pkg from "vue-toastification";
+import CommonToast from "@/components/CToast.vue";
+const { useToast } = pkg;
 
 export const useCustomToast = () => {
-  const toast = useToast()
+  const toast = useToast();
 
   const showToast = (
     title: string,
-    type: 'success' | 'error' | 'warning' | 'info'
+    type: "success" | "error" | "warning" | "info"
   ) => {
     toast({
       component: CommonToast,
@@ -15,8 +15,8 @@ export const useCustomToast = () => {
         title,
         type,
       },
-    })
-  }
+    });
+  };
 
-  return { showToast }
-}
+  return { showToast };
+};

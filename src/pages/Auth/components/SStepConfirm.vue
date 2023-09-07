@@ -37,12 +37,12 @@
 
 <script setup lang="ts">
 import { formatPhoneNumber } from "@/utils";
-import SFormGroup from "@/components/Form/Group/SFormGroup.vue";
-import COtp from "@/components/Form/COtp.vue";
+import SFormGroup from "@/components/Form/FGroup.vue";
+import COtp from "@/components/Form/FOtp.vue";
 import { ref, watch } from "vue";
 import { useForm } from "@/composables/useForm";
 import { minLength, required } from "@vuelidate/validators";
-import SButton from "@/components/Common/Button/SButton.vue";
+import SButton from "@/components/Common/CButton.vue";
 import { useCustomToast } from "@/composables/useCustomToast";
 import { useI18n } from "vue-i18n";
 

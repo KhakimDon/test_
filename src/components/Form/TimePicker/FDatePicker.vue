@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import Select from "@/components/Form/Select/Select.vue";
+import Select from "@/components/Form/FSelect.vue";
 import { ref, watch } from "vue";
 
 interface Props {

@@ -8,7 +8,7 @@
       />
     </Transition>
     <Transition name="modal">
-      <div
+      <dialog
         id="ModalBg"
         v-if="show"
         class="fixed top-0 left-0 w-full h-full z-[51] flex items-center justify-center transition-300 p-5"
@@ -39,13 +39,12 @@
             <slot></slot>
           </div>
         </div>
-      </div>
+      </dialog>
     </Transition>
   </div>
 </template>
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from "vue";
-import { useEventListener } from "@vueuse/core";
 
 interface Props {
   title?: string;
@@ -55,7 +54,7 @@ interface Props {
   buttonClass?: string;
 }
 withDefaults(defineProps<Props>(), {
-  title: "Modal",
+  title: "Dialog",
 });
 
 const emit = defineEmits<{
@@ -65,7 +64,7 @@ const emit = defineEmits<{
 const onMousedown = (event: Event) => {
   const target = event.target as HTMLTextAreaElement;
 
-  if (target.id !== "Modal" && target.id === "ModalBg") {
+  if (target.id !== "Dialog" && target.id === "ModalBg") {
     close();
   }
 };

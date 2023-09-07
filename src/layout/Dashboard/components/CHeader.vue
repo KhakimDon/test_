@@ -23,7 +23,7 @@
   </header>
 </template>
 <script lang="ts" setup>
-import HeaderProfile from "@/layout/components/Header/Profile.vue";
+import HeaderProfile from "@/layout/Dashboard/components/CProfileDropdown.vue";
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();

@@ -21,7 +21,7 @@ import {
   ref,
   WritableComputedRef,
 } from "vue";
-import Select from "@/components/Form/Select/Select.vue";
+import Select from "@/components/Form/FSelect.vue";
 
 interface Props {
   itemsPerPage: number;

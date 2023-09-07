@@ -12,8 +12,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import SSidebar from "@/layout/components/Sidebar/SSidebar.vue";
-import LHeader from "@/layout/components/Header/LHeader.vue";
+import SSidebar from "@/layout/Dashboard/components/CSidebar.vue";
+import LHeader from "@/layout/Dashboard/components/CHeader.vue";
 
 const activeRoute = "/";
 </script>

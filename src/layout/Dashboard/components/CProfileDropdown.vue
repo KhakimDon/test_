@@ -77,9 +77,9 @@
 </template>
 
 <script lang="ts" setup>
-import Dropdown from "@/components/Common/Dropdown/Dropdown.vue";
+import Dropdown from "@/components/Common/CDropdown.vue";
 import { defineComponent, ref } from "vue";
-import CommonLangSwitcher from "@/components/Common/LangSwitcher/CommonLangSwitcher.vue";
+import CommonLangSwitcher from "@/components/CLanguageSwitcher.vue";
 
 defineComponent({
   name: "HeaderProfile",

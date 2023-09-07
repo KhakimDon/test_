@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import Dropdown from "@/components/Common/Dropdown/Dropdown.vue";
+import Dropdown from "@/components/Common/CDropdown.vue";
 
 const show = ref(false);
 

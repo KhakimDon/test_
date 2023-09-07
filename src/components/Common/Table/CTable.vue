@@ -100,10 +100,10 @@
 <script setup lang="ts">
 import { TClassName } from "@/types/common";
 import { ITableHead } from "@/types/components/table";
-import CommonPreloader from "@/components/Common/Preloader/CommonPreloader.vue";
-import Input from "@/components/Form/Input/Input.vue";
-import CommonPagination from "@/components/Common/Pagination/CommonPagination.vue";
-import CommonPageLimitChange from "@/components/Common/PageLimitChange/CommonPageLimitChange.vue";
+import CommonPreloader from "@/components/CPreloader.vue";
+import Input from "@/components/Form/Input/FInput.vue";
+import CommonPagination from "@/components/Common/Table/CPagination.vue";
+import CommonPageLimitChange from "@/components/Common/Table/CPageLimitChange.vue";
 import { computed, ref, WritableComputedRef } from "vue";
 
 interface Props {

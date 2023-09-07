@@ -12,9 +12,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import LDefault from "@/layout/LDefault.vue";
-import LError from "@/layout/LError.vue";
-import LAuth from "@/layout/LAuth.vue";
+import LDefault from "@/layout/Dashboard/LDefault.vue";
+import LError from "@/layout/Error/LError.vue";
+import LAuth from "@/layout/Auth/LAuth.vue";
 // Setup
 
 const route = useRoute();
@@ -27,5 +27,4 @@ const layouts: { [key: string]: string } = {
 const detectLayout = computed(() => {
   return layouts[route.meta.layout as string];
 });
-
 </script>

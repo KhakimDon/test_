@@ -48,12 +48,12 @@
 </template>
 
 <script setup lang="ts">
-import SButton from "@/components/Common/Button/SButton.vue";
+import SButton from "@/components/Common/CButton.vue";
 import { ref, unref } from "vue";
 import { VueRecaptcha } from "vue-recaptcha";
-import SFormGroup from "@/components/Form/Group/SFormGroup.vue";
-import SInput from "@/components/Form/Input/Input.vue";
-import SEyeToggle from "@/components/Form/EyeToggle/EyeToggle.vue";
+import SFormGroup from "@/components/Form/FGroup.vue";
+import SInput from "@/components/Form/Input/FInput.vue";
+import SEyeToggle from "@/components/Form/Input/CEyeToggle.vue";
 import { useI18n } from "vue-i18n";
 import { useCustomToast } from "@/composables/useCustomToast";
 import { TForm } from "@/composables/useForm";

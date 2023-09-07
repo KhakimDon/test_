@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import Radio from "@/components/Form/Radio/Radio.vue";
+import Radio from "@/components/Form/Radio/FRadio.vue";
 import { ref, watch } from "vue";
 interface Props {
   modelValue: string | number | object;

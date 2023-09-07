@@ -191,7 +191,7 @@ import { computed, onMounted, ref } from "vue";
 
 import { menu } from "@/data/menu";
 import { useRoute } from "vue-router";
-import LogoMain from "@/components/Common/Logo/Main.vue";
+import LogoMain from "@/components/Logo/CLogo.vue";
 
 const openIndex = ref(null);
 const isOpen = ref(true);

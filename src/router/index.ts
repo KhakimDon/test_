@@ -8,7 +8,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       layout: "default",
     },
-    component: () => import("@/pages/PIndex.vue"),
+    component: () => import("@/pages/Index/PDashboard.vue"),
   },
   {
     // the 404 route, when none of the above matches
@@ -35,7 +35,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       layout: "error",
     },
-    component: () => import("@/layout/LError.vue"),
+    component: () => import("@/layout/Error/LError.vue"),
   },
 ];
 const router = createRouter({
