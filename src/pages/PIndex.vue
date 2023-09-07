@@ -4,6 +4,7 @@
       <SBreadcrumb v-bind="{ routes }" />
     </teleport>
     <div class="mt-7">
+        <RichText/>
       <CommonTable
         v-bind="{
           head,
@@ -41,6 +42,7 @@ import TimePicker from "@/components/Form/TimePicker/TimePicker.vue";
 import CommonTable from "@/components/Common/Table/CommonTable.vue";
 import { head, tableData } from "@/data";
 import Input from "@/components/Form/Input/Input.vue";
+import RichText from "@/components/RichText/RichText.vue";
 
 const { mounted } = useMounted();
 const { t } = useI18n();
