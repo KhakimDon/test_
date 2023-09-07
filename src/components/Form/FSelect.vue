@@ -24,14 +24,14 @@
           v-else
           class="font-medium select-none text-sm text-gray leading-140"
           tabindex="1"
-          :class="{ '!text-gray': disabled }"
+          :class="[{ '!text-gray': disabled }, selectedStyles]"
         >
           {{ value[labelKey] || value }}
         </p>
 
         <slot name="chevron">
           <span
-            class="icon-chevron flex-center h-5 transition-200 text-lg text-gray inline-block shrink-0"
+            class="icon-chevron flex-center h-5 transition-200 text-lg text-gray-700 inline-block shrink-0"
             :class="{ 'rotate-180': showOptions }"
           >
           </span>
@@ -91,6 +91,7 @@ export interface Props {
   valueKey: string;
   placeholder?: string;
   selectedOptionStyles?: TClassName;
+  selectedStyles?: TClassName;
   dark?: boolean;
   error?: boolean;
   disabled?: boolean;
