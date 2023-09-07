@@ -40,23 +40,15 @@ import { useMounted } from "@/composables/useMounted";
 import SBreadcrumb from "@/components/Common/CBreadcrumb.vue";
 import FInput from "@/components/Form/Input/FInput.vue";
 import { useI18n } from "vue-i18n";
+import { computed } from "vue";
 
 const { mounted } = useMounted();
 const { t } = useI18n();
-// const loading = ref(false);
-//
-const routes = [
+
+const routes = computed(() => [
   {
     name: t("menus.news"),
     route: "/",
   },
-];
-//
-// setTimeout(() => {
-//   loading.value = false;
-// }, 2000);
-//
-// const changePerPage = (value: number) => {
-//   // Todo: Event
-// };
+]);
 </script>

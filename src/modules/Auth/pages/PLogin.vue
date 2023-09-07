@@ -18,9 +18,9 @@
 import { useForm } from "@/composables/useForm";
 import { required } from "@vuelidate/validators";
 import { useRouter } from "vue-router";
-import SStepLogin from "@/pages/Auth/components/SStepLogin.vue";
+import SStepLogin from "@/modules/Auth/components/SStepLogin.vue";
 import { ref } from "vue";
-import SStepConfirm from "@/pages/Auth/components/SStepConfirm.vue";
+import SStepConfirm from "@/modules/Auth/components/SStepConfirm.vue";
 
 const router = useRouter();
 

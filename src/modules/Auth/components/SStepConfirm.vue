@@ -4,9 +4,9 @@
       <i
         class="icon-chevron text-2xl block text-dark rotate-180 transition group-hover:-translate-x-1"
       />
-      <p class="text-2xl leading-130 font-semibold text-dark">
+      <span class="text-2xl leading-130 font-semibold text-dark">
         {{ $t("enter_code") }}
-      </p>
+      </span>
     </button>
     <p class="text-sm leading-130 font-normal text-blue-100 mt-4">
       {{ $t("we_send_code") }}
@@ -14,9 +14,9 @@
     <button
       class="flex-y-center px-2 py-1.5 gap-2.5 rounded bg-white-300 group mt-2"
     >
-      <p class="text-sm leading-130 font-normal text-dark">
+      <span class="text-sm leading-130 font-normal text-dark">
         {{ formatPhoneNumber(phone) }}
-      </p>
+      </span>
       <i
         class="icon-pen-square text-gray text-base transition-300 group-hover:text-dark"
       />
@@ -49,10 +49,12 @@ import { useI18n } from "vue-i18n";
 interface Props {
   phone?: string;
 }
-
 defineProps<Props>();
+
 const emit = defineEmits(["submit", "back"]);
+
 const { showToast } = useCustomToast();
+
 const { t } = useI18n();
 
 const disabled = ref(true);
