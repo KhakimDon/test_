@@ -92,7 +92,7 @@ function getIndex(index: number) {
   background: linear-gradient(0deg, #52618f 50%, #52618f 0) center/4.5px 100%,
     linear-gradient(90deg, #52618f 50%, #52618f 0) center/100% 4.5px;
   background-repeat: no-repeat;
-  animation: spinner-d3o0rx 1s infinite steps(12);
+  animation: spinner-d3o0rx 1.5s infinite steps(12);
 }
 .spinner::before,
 .spinner::after {
