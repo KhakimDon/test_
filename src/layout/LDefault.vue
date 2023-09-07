@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#EEF0F8] min-h-screen flex">
+  <div class="bg-[#F5F6F7] min-h-screen flex">
     <SSidebar />
     <div class="w-full h-full">
       <LHeader v-bind="{ profileItems, activeRoute, user }" />

@@ -2,11 +2,12 @@ import "vue-toastification/dist/index.css";
 
 import { App } from "vue";
 import Toast from "vue-toastification";
+import CommonToast from "@/components/Common/CommonToast.vue";
 
 export default function definePlugins(app: App): App {
   //Toast Notification
   const options = {
-    position: "top-right",
+    position: 'top-right',
     timeout: 5000,
     closeOnClick: true,
     pauseOnFocusLoss: true,
@@ -15,11 +16,13 @@ export default function definePlugins(app: App): App {
     draggablePercent: 0.6,
     showCloseButtonOnHover: false,
     hideProgressBar: true,
-    closeButton: "button",
+    closeButton: false,
     icon: true,
     rtl: false,
-    maxToasts: 5,
-  };
+    maxToasts: 3,
+    newestOnTop: true,
+    component: CommonToast,
+  }
   app.use(Toast, options);
   return app;
 }

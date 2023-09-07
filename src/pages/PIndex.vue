@@ -3,17 +3,6 @@
     <teleport v-if="mounted" to="#header-breadcrumbs">
       <SBreadcrumb v-bind="{ routes }" />
     </teleport>
-    <teleport v-if="mounted" to="head">
-      <title>Home</title>
-    </teleport>
-    <div class="bg-white p-6">
-      <TimePicker
-        :disabled="disabled"
-        @start-time="handleStart"
-        @end-time="handleEnd"
-      />
-      <Input />
-    </div>
     <div class="mt-7">
       <CommonTable
         v-bind="{
@@ -25,11 +14,8 @@
           currentPage: 2,
           total: 100,
         }"
-        status-key="status"
-        :status-colors="{
-          active: 'green',
-          inactive: 'red',
-        }"
+        status-key=""
+        :status-colors="{}"
         @itemsPerPage="changePerPage"
       >
         <template #afterSearch>
@@ -43,7 +29,6 @@
         </template>
       </CommonTable>
     </div>
-    <div class="h-screen bg-white mt-7" />
   </div>
 </template>
 
@@ -63,27 +48,14 @@ const loading = ref(false);
 
 const routes = [
   {
-    name: t("main"),
+    name: t("menus.news"),
     route: "/",
   },
-  {
-    name: t("dashboard"),
-    route: "/dashboard",
-  },
 ];
-
-const disabled = ref(false);
 
 setTimeout(() => {
   loading.value = false;
 }, 2000);
-
-const handleStart = (value: number | string) => {
-  console.log(value, "handleStart");
-};
-const handleEnd = (value: number | string) => {
-  console.log(value, "handleEnd");
-};
 
 const changePerPage = (value: number) => {
   console.log(value, "changePerPage");

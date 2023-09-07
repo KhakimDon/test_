@@ -1,6 +1,6 @@
 <template>
   <label
-    class="text-sm font-semibold text-dark"
+    class="text-sm font-medium text-dark"
     :class="labelClass"
     :for="forText"
   >

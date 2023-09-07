@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?o4qas1');
+  src:  url('fonts/icomoon.eot?o4qas1#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?o4qas1') format('truetype'),
+    url('fonts/icomoon.woff?o4qas1') format('woff'),
+    url('fonts/icomoon.svg?o4qas1#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-microphone:before {
+  content: "\e907";
+}
+.icon-play:before {
+  content: "\e908";
+}
+.icon-photo:before {
+  content: "\e909";
+}
+.icon-docs:before {
+  content: "\e90a";
+}
+.icon-calendar:before {
+  content: "\e900";
+}
+.icon-chevron:before {
+  content: "\e901";
+}
+.icon-doc:before {
+  content: "\e902";
+}
+.icon-language:before {
+  content: "\e903";
+}
+.icon-pen-square:before {
+  content: "\e904";
+}
+.icon-tick-circle:before {
+  content: "\e905";
+}
+.icon-warning:before {
+  content: "\e906";
+}

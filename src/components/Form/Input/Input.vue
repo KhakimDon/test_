@@ -1,10 +1,10 @@
 <template>
   <div
     :class="[
-      'inline-flex items-center justify-start relative k-transition transition-all duration-300 bg-gray-300 rounded-lg border border-transparent overflow-hidden w-full py-[11px] px-3 ',
+      'h-10 inline-flex items-center justify-start relative k-transition transition-all duration-300 bg-gray-500 rounded-lg border border-transparent overflow-hidden w-full py-[11px] px-3 ',
       error
         ? '!border-red'
-        : 'focus-within:bg-transparent focus-within:border-blue',
+        : 'focus-within:bg-transparent focus-within:border-blue-200',
     ]"
   >
     <span :class="[prefixClass]">

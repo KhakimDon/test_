@@ -13,30 +13,30 @@ interface IMenu {
 
 export const menu: IMenu[] = [
   {
-    heading: "menus.main",
+    heading: "menus.news",
     route: "/",
-    svgIcon: "icon-home",
+    svgIcon: "icon-docs",
   },
   {
-    heading: "menus.general_statistics",
-    route: "/dashboard",
-    svgIcon: "icon-repeat",
-    meta: {
-      role: ["super_admin"],
-    },
-  },
-  {
-    heading: "menus.partners",
-    route: "/dashboard/partners",
-    svgIcon: "icon-rocket",
+    heading: "menus.posts",
+    route: "",
+    svgIcon: "icon-docs",
     sub: [
       {
-        heading: "menus.all_partners",
-        route: "/dashboard/partners/all",
+        heading: "menus.article_authors",
+        route: "/article/authors",
       },
       {
-        heading: "menus.partners_categories",
-        route: "/dashboard/partners/categories",
+        heading: "menus.spec_reports",
+        route: "/article/reports",
+      },
+      {
+        heading: "menus.speakers",
+        route: "/article/speakers",
+      },
+      {
+        heading: "menus.discussion",
+        route: "/article/discussion",
       },
     ],
     meta: {
@@ -44,28 +44,26 @@ export const menu: IMenu[] = [
     },
   },
   {
-    heading: "menus.services",
-    route: "/dashboard/services",
-    svgIcon: "icon-credit-card",
+    heading: "menus.photo_report",
+    route: "/gallery",
+    svgIcon: "icon-photo",
     meta: {
       role: ["super_admin"],
     },
   },
 
   {
-    heading: "menus.partners",
-    route: "/dashboard/partners",
-    svgIcon: "icon-rocket",
-    sub: [
-      {
-        heading: "menus.all_partners",
-        route: "/dashboard/partners",
-      },
-      {
-        heading: "menus.partners_categories",
-        route: "/dashboard/partners/categoriesa",
-      },
-    ],
+    heading: "menus.interview",
+    route: "/interview",
+    svgIcon: "icon-play",
+    meta: {
+      role: ["super_admin"],
+    },
+  },
+  {
+    heading: "menus.podcasts",
+    route: "/podcasts",
+    svgIcon: "icon-microphone",
     meta: {
       role: ["super_admin"],
     },

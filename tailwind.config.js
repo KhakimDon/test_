@@ -14,6 +14,7 @@ module.exports = {
           DEFAULT: "#FFFFFF",
           100: "#E5E7EE",
           200: "#ECF3FA",
+          300: "#F0F0F5",
           400: "#F5F5F6",
           // 150: "#FCFCFC",
           // 200: "#F6F8FA",
@@ -25,6 +26,7 @@ module.exports = {
           100: "#52618F",
           200: "#A2BCDE",
           300: "#ECF2F8",
+          400: "#737FA4",
           800: "#022F5E",
           //
           // 50: "#E8F0FE",
@@ -39,13 +41,14 @@ module.exports = {
           200: "#8E9BA8",
           300: "#E5E7EE",
           400: "#F5F6F7",
+          500: "#F5F6F6",
           700: "#596066",
         },
         dark: {
           DEFAULT: "#191F2E",
           100: "#121C25",
           200: "#2C3752",
-          300:"#151516"
+          300: "#151516",
         },
         red: {
           DEFAULT: "#FF4141",
@@ -69,7 +72,7 @@ module.exports = {
         140: "140%",
       },
       fontFamily: {
-        sans: ['Roboto', "sans-serif"],
+        sans: ["Roboto", "sans-serif"],
       },
       zIndex: {
         90: "90",

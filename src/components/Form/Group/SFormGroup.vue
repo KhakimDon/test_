@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-2 w-full">
     <div class="flex-center-between w-full">
-      <Label :label="label" v-bind="{ forText }" />
+      <Label v-bind="{ forText, label }" />
       <slot name="labelOpposite" />
     </div>
     <slot />

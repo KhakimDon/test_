@@ -5,7 +5,7 @@
       sizes[size],
       { '!pointer-events-none': loading },
     ]"
-    class="rounded relative disabled:!pointer-events-none transition-300 active:scale-95"
+    class="rounded-lg relative disabled:!pointer-events-none disabled:!bg-white-100 disabled:!text-gray-100 transition-300 active:scale-95 leading-6"
   >
     <span
       :class="[
@@ -68,26 +68,19 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const variants: Record<TButtonVariants, string> = {
-  primary: "bg-blue text-white disabled:!bg-gray-100 hover:bg-blue-400",
+  primary: "bg-blue-100 text-white hover:bg-blue-400",
   secondary:
     "bg-white-100 text-blue-800 hover:bg-white-300 hover:text-blue-800",
-  outline: "bg-transparent text-white border border-white/40 hover:bg-white/8",
-  "outline-dark":
-    "bg-transparent text-dark border border-dark/40 hover:bg-dark/8",
-  "outline-primary":
-    "bg-transparent text-blue border border-blue/40 hover:bg-blue/8",
-  "outline-fill":
-    "bg-white/20 text-white hover:bg-white/50 border border-white/10",
 };
 
 const sizes: Record<TButtonSizes, string> = {
   sm: "py-2 px-6 text-sm font-medium",
-  md: "py-3 px-7 font-semibold text-base",
+  md: "py-2.5 px-7 font-semibold text-sm",
 };
 
 const loaderFill = computed(() => {
   if (["outline", "outline-dark", "outline-primary"].includes(props.variant)) {
-    return "#4489F7";
+    return "#191F2E";
   }
   return "white";
 });

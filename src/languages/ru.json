@@ -1,10 +1,31 @@
 {
-  "hello": "Hello",
   "enter_system": "Войти в систему",
   "submit": "Отправить",
   "success_login": "Успешный вход в систему",
   "add_image": "Добавить фото",
   "log_out": "Выйти",
   "help": "Помощь",
-  "language": "Язык"
+  "language": "Язык",
+  "privacy_policy": "Политика конфиденциальности",
+  "login": "Логин",
+  "enter_login": "Введите логин",
+  "password": "Пароль",
+  "enter_password": "Введите пароль",
+  "version": "Версия:",
+  "enter_code": "Введите код",
+  "we_send_code": "Мы отправили код подтверждения на ваш номер телефона",
+  "confirm_code": "Код подтверждения",
+  "confirm": "Подтвердить",
+  "menus": {
+    "news": "Новости",
+    "posts": "Посты",
+    "photo_report": "Фоторепортаж",
+    "interview": "Интервью",
+    "podcasts": "Подкаст",
+    "discussion": "Разборы",
+    "speakers": "Колонки",
+    "spec_reports": "Спецрепортаж",
+    "article_authors": "Статьи авторов"
+  },
+  "supported_by": "Supported by {logo}"
 }

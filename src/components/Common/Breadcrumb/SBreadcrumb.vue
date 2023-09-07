@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center text-black">
+  <div class="flex items-center">
     <div
       v-for="(route, index) in routes"
       :key="index"
@@ -9,23 +9,17 @@
       <RouterLink
         v-if="route.link"
         class="transition duration-500"
-        :class="[`hover:text-[${hoverColor}]`]"
         :to="route.route"
       >
         {{ route.name }}
       </RouterLink>
       <p v-else-if="route.disabled">{{ route.name }}</p>
-      <RouterLink
-        v-else
-        class="transition duration-500"
-        :class="[`hover:text-[${hoverColor}]`]"
-        :to="route.route"
-      >
+      <RouterLink v-else class="transition duration-500" :to="route.route">
         {{ route.name }}
       </RouterLink>
       <span
         v-if="index !== routes.length - 1"
-        class="mx-2 w-1 h-1 bg-black rounded-full"
+        class="mx-2 w-1 h-1 bg-blue-200 rounded-full"
       ></span>
     </div>
   </div>
@@ -46,14 +40,14 @@ export interface Props {
   textColor: string;
 }
 const props = withDefaults(defineProps<Props>(), {
-  hoverColor: "#409eff",
-  textColor: "#1c1e21",
+  hoverColor: "#52618F",
+  textColor: "#191F2E",
 });
 const checkLastRoute = (index: number) => {
   if (index === props.routes.length - 1) {
-    return "font-normal cursor-not-allowed";
+    return "font-medium text-gray cursor-not-allowed pointer-events-none";
   } else {
-    return "font-bold cursor-pointer";
+    return "font-medium text-dark hover:text-blue-100 cursor-pointer";
   }
 };
 </script>

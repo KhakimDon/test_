@@ -54,7 +54,7 @@ interface Props {
   hoverColor: string;
 }
 withDefaults(defineProps<Props>(), {
-  color: "#a5aab4",
+  color: "#919299",
   hoverColor: "#009EF6",
 });
 </script>
