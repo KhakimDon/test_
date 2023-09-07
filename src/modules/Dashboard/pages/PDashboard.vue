@@ -30,7 +30,7 @@
       <!--        </template>-->
       <!--      </CommonTable>-->
 
-      <FSelect :options="options" value-key="value" label-key="label" />
+      <FInput placeholder="Hello" />
     </div>
   </div>
 </template>
@@ -38,40 +38,17 @@
 <script setup lang="ts">
 import { useMounted } from "@/composables/useMounted";
 import SBreadcrumb from "@/components/Common/CBreadcrumb.vue";
+import FInput from "@/components/Form/Input/FInput.vue";
 import { useI18n } from "vue-i18n";
-import FSelect from "@/components/Form/FSelect.vue";
+import { computed } from "vue";
 
 const { mounted } = useMounted();
 const { t } = useI18n();
-// const loading = ref(false);
-//
-const routes = [
+
+const routes = computed(() => [
   {
     name: t("menus.news"),
     route: "/",
   },
-];
-
-const options = [
-  {
-    value: 1,
-    label: "Lebel 1",
-  },
-  {
-    value: 2,
-    label: "Lebel 2",
-  },
-  {
-    value: 3,
-    label: "Lebel 3",
-  },
-];
-//
-// setTimeout(() => {
-//   loading.value = false;
-// }, 2000);
-//
-// const changePerPage = (value: number) => {
-//   // Todo: Event
-// };
+]);
 </script>
