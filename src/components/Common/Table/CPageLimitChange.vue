@@ -14,13 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  ref,
-  WritableComputedRef,
-} from "vue";
+import { computed, onMounted, ref, WritableComputedRef } from "vue";
 import Select from "@/components/Form/FSelect.vue";
 
 interface Props {
@@ -38,7 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 const emit = defineEmits(["update:itemsPerPage"]);
 
-const inputItemsPerPage = ref<any>(10);
+const inputItemsPerPage = ref<number>(10);
 
 onMounted(() => {
   inputItemsPerPage.value = props.itemsPerPage;
