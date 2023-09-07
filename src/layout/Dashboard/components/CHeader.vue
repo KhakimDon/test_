@@ -4,7 +4,7 @@
   >
     <div id="header-breadcrumbs"></div>
 
-    <nav class="flex w-full h-full items-center gap-5 justify-end">
+    <nav class="flex w-full h-full items-center gap-6 justify-end">
       <slot name="before-links" />
 
       <ul class="flex gap-x-2">
