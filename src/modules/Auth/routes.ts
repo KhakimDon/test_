@@ -3,7 +3,7 @@ import { RouteRecordRaw } from "vue-router";
 const routes: Readonly<RouteRecordRaw[]> = [
   {
     path: "/login",
-    name: "Login",
+    name: "PAuth",
     meta: {
       layout: "auth",
     },
