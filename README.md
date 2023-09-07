@@ -1,4 +1,4 @@
-# Uznews Back Office Frontend
+# Metronic Boilerplate Next
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.uicgroup.tech/uznews/uznews-back-office-frontend.git
+git remote add origin https://gitlab.uicgroup.tech/frontend-rd/metronic-boilerplate-next.git
 git branch -M master
 git push -uf origin master
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.uicgroup.tech/uznews/uznews-back-office-frontend/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.uicgroup.tech/frontend-rd/metronic-boilerplate-next/-/settings/integrations)
 
 ## Collaborate with your team
 
