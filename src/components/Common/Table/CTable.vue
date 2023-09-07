@@ -1,9 +1,9 @@
 <template>
   <div class="relative w-full max-w-full overflow-x-auto" :class="wrapperClass">
-    <table class="w-full c-table">
-      <thead>
-        <Transition name="dropdown" mode="out-in">
-          <tr v-if="!loading">
+    <Transition name="dropdown" mode="out-in">
+      <table class="w-full c-table" v-if="!loading">
+        <thead>
+          <tr>
             <th
               v-for="(h, index) in head"
               :key="index"
@@ -13,10 +13,8 @@
               {{ h.title }}
             </th>
           </tr>
-        </Transition>
-      </thead>
-      <Transition name="dropdown" mode="out-in">
-        <tbody v-if="!loading">
+        </thead>
+        <tbody>
           <tr
             v-for="(d, index) in data"
             :key="index"
@@ -40,8 +38,8 @@
             </td>
           </tr>
         </tbody>
-      </Transition>
-    </table>
+      </table>
+    </Transition>
     <div
       v-if="loading"
       class="w-full h-[500px] flex items-center justify-center"
