@@ -26,7 +26,6 @@
           />
         </template>
       </CTable>
-      <FInput placeholder="Hello" />
     </div>
   </div>
 </template>
@@ -34,7 +33,6 @@
 <script setup lang="ts">
 import { useMounted } from "@/composables/useMounted";
 import SBreadcrumb from "@/components/Common/CBreadcrumb.vue";
-import FInput from "@/components/Form/Input/FInput.vue";
 import { useI18n } from "vue-i18n";
 import { computed, onMounted, ref } from "vue";
 import CTable from "@/components/Common/Table/CTable.vue";
@@ -58,4 +56,6 @@ const routes = computed(() => [
     route: "/",
   },
 ]);
+
+const value = ref(true);
 </script>

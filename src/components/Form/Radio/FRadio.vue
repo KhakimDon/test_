@@ -12,16 +12,16 @@
       @change="handleChange"
     />
     <span
-      class="before:w-2.5 before:h-2.5 shrink-0 duration-200 ease-in-out bg-white peer-checked:before:opacity-100 mr-3 before:opacity-0 relative border-2 rounded-full box-border before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-200 border-gray-100 peer-disabled:before:bg-gray-100"
+      class="before:w-2.5 before:h-2.5 shrink-0 duration-200 ease-in-out bg-white peer-checked:before:opacity-100 mr-1.5 before:opacity-0 relative border-2 rounded-full box-border before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-200 border-gray-100 peer-disabled:before:bg-gray-100"
       :class="[computedBtnStyles]"
       :style="{ width: computedSize, height: computedSize }"
     />
     <slot name="label">
       <span
-        class="font-normal text-sm leading-130"
+        class="transition-200 text-base"
         :class="[
           labelStyles,
-          modelValue === value ? 'text-blue' : 'text-gray-700',
+          modelValue === value ? 'font-medium text-blue-100' : 'text-dark',
         ]"
       >
         {{ label }}
@@ -47,7 +47,7 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   size: 20,
   btnStyles:
-    "before:bg-blue group-hover:border-blue peer-checked:border-blue peer-checked:before:!bg-blue",
+    "before:bg-blue-100 group-hover:border-blue-100 peer-checked:border-blue-100 peer-checked:before:!bg-blue-100",
 });
 
 const emit = defineEmits<{
