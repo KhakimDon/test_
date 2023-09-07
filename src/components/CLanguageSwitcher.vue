@@ -1,6 +1,6 @@
 <template>
   <CDropdown head-class="cursor-pointer">
-    <template #head="{ data }">
+    <template #head="{ show }">
       <div
         class="transition-300 flex items-center justify-between gap-1 bg-white group pl-4 p-1 rounded-md"
       >
@@ -11,7 +11,7 @@
           </span>
           <i
             class="icon-chevron transition-200 text-xs inline-block"
-            :class="data.show ? '-rotate-90' : 'rotate-90'"
+            :class="show ? '-rotate-90' : 'rotate-90'"
           ></i>
         </div>
       </div>

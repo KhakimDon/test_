@@ -6,11 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-button {
-    cursor: pointer;
-}
-
 @layer ui {
     .transition-300 {
         @apply transition-all duration-300;
@@ -82,4 +77,12 @@ select:-webkit-autofill:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+button {
+    cursor: pointer;
+}
+
+p, span, a {
+    line-height: 130% !important;
 }

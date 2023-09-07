@@ -1,33 +1,25 @@
 <template>
-  <CDropdown
-    :show="show"
-    head-class="cursor-pointer"
-    body-class="overflow-visible"
-    @toggle="handleToggle"
-  >
-    <template #head>
-      <div class="flex items-center gap-3">
-        <div class="h-max flex flex-col justify-center">
-          <p class="text-base font-semibold text-dark text-right leading-20">
+  <CDropdown head-class="cursor-pointer">
+    <template #head="{ show }">
+      <div class="flex-y-center gap-3">
+        <div>
+          <p class="font-semibold text-base text-dark mb-0.5">
             {{ user?.fullName }}
           </p>
-          <p class="text-sm text-gray text-right">{{ user?.subtitle }}</p>
+          <p class="text-sm text-gray text-right">
+            {{ user?.subtitle }}
+          </p>
         </div>
-        <div
-          class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/30"
-        >
-          <img
-            :src="user?.avatar"
-            alt="Profil image"
-            class="object-cover w-full h-full"
-          />
-        </div>
+
+        <CAvatar :image="user?.avatar" size="sm" />
+
         <span
           :class="{ 'rotate-180': show }"
           class="icon-arrow-md text-2xl text-gray transition-300"
         ></span>
       </div>
     </template>
+
     <div class="bg-white rounded-md profile-dropdown">
       <div class="flex items-center gap-3 p-5 pt-6">
         <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
@@ -78,6 +70,7 @@
 import CDropdown from "@/components/Common/CDropdown.vue";
 import { defineComponent, ref } from "vue";
 import CommonLangSwitcher from "@/components/CLanguageSwitcher.vue";
+import CAvatar from "@/components/CAvatar.vue";
 
 defineComponent({
   name: "HeaderProfile",
@@ -98,11 +91,6 @@ interface Props {
 }
 
 defineProps<Props>();
-const show = ref(false);
-
-function handleToggle(val: boolean) {
-  show.value = val;
-}
 </script>
 
 <style scoped>
