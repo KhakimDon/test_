@@ -15,62 +15,44 @@
 
         <span
           :class="{ 'rotate-180': show }"
-          class="icon-arrow-md text-2xl text-gray transition-300"
+          class="icon-chevron-2 font-medium transition-200 text-2xl text-gray"
         ></span>
       </div>
     </template>
 
-    <div class="bg-white rounded-md profile-dropdown">
-      <div class="flex items-center gap-3 p-5 pt-6">
-        <div class="w-[50px] h-[50px] rounded-full overflow-hidden">
-          <img
-            :src="user?.avatar"
-            alt="Profil image"
-            class="object-cover w-full h-full"
-          />
-        </div>
-        <div class="h-max flex flex-col justify-center">
-          <p class="text-base font-semibold text-dark leading-20">
-            {{ user?.fullName }}
-          </p>
-          <p class="text-sm text-gray">{{ user?.subtitle }}</p>
-        </div>
-      </div>
-      <div class="border-y border-gray-550 py-2 px-4 flex flex-col gap-1">
-        <div
-          v-for="(item, index) in profileItems"
-          :key="index"
-          :class="[
-            item?.class,
-            item?.icon
-              ? '!inline-grid grid-cols-[28px_1fr] items-center'
-              : 'inline-block',
-          ]"
-          class="w-full text-sm text-gray-650 hover:text-blue-200 leading-5 transition-all duration-300 hover:bg-gray-600 px-4 py-2 rounded-md cursor-pointer"
-          @click="$emit(item?.event)"
-        >
-          <i v-if="item?.icon" :class="item?.icon" class="text-xl"></i>
-          <span>{{ item.title }}</span>
-        </div>
-      </div>
-      <div class="py-2 px-4 flex flex-col gap-1">
-        <CommonLangSwitcher />
-        <div
-          class="text-sm w-full transition-all duration-300 px-4 py-2 rounded-md cursor-pointer text-red-500 hover:bg-red-50"
-          @click="$emit('logout')"
-        >
-          <span>{{ $t("log_out") }}</span>
-        </div>
+    <div
+      class="transition-200 flex-y-center px-5 pt-6 pb-[18px] space-x-4 hover:bg-white-100/[0.24]"
+    >
+      <CAvatar :image="user?.avatar" size="md" />
+
+      <div>
+        <h5 class="font-semibold text-base text-dark mb-px">
+          {{ user.fullName }}
+        </h5>
+        <p class="text-sm text-gray-200">{{ user.subtitle }}</p>
       </div>
     </div>
+
+    <ul>
+      <li
+        class="transition-200 p-3 flex flex-col gap-1 text-sm w-full text-dark hover:bg-white-100/[0.24]"
+        v-for="(item, idx) in dropdownItems"
+        :key="idx"
+        :class="item?.styles"
+        @click="item.action"
+      >
+        {{ item.label }}
+      </li>
+    </ul>
   </CDropdown>
 </template>
 
 <script lang="ts" setup>
 import CDropdown from "@/components/Common/CDropdown.vue";
-import { defineComponent, ref } from "vue";
-import CommonLangSwitcher from "@/components/CLanguageSwitcher.vue";
+import { defineComponent } from "vue";
 import CAvatar from "@/components/CAvatar.vue";
+import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 defineComponent({
   name: "HeaderProfile",
@@ -89,12 +71,26 @@ interface Props {
     event?: string;
   }[];
 }
-
 defineProps<Props>();
-</script>
 
-<style scoped>
-.profile-dropdown {
-  box-shadow: 0 0 50px rgba(82, 63, 105, 0.15);
+const router = useRouter();
+const { t } = useI18n();
+
+interface IDropdownItem {
+  label: string;
+  styles?: string;
+  action: () => void;
 }
-</style>
+
+const dropdownItems: IDropdownItem[] = [
+  {
+    label: t("help"),
+    action: () => router.push({ name: "Help" }),
+  },
+  {
+    label: t("log_out"),
+    styles: "text-red-500 hover:bg-red-50",
+    action: () => router.push({ name: "Help" }),
+  },
+];
+</script>

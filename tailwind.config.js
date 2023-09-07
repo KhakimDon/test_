@@ -90,6 +90,7 @@ module.exports = {
         blog: "0px 3px 20px rgba(18, 28, 37, 0.06), 0px 4px 30px rgba(18, 28, 37, 0.07), inset 0px -1px 0px rgba(102, 117, 137, 0.3)",
         chat: "0px 28px 28px rgba(0, 0, 0, 0.08)",
         "inner-xs": "inset 0px -1px 0px rgba(255, 255, 255, 0.1)",
+        select: "0 8px 24px 0 rgba(25, 30, 54, 0.12)",
       },
     },
   },

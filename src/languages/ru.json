@@ -27,5 +27,6 @@
     "spec_reports": "Спецрепортаж",
     "article_authors": "Статьи авторов"
   },
+  "select": "Выбрать",
   "supported_by": "Supported by {logo}"
 }
