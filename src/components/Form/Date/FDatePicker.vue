@@ -35,16 +35,22 @@
         />
       </template>
     </VueDatePicker>
+    <div class="flex-center absolute-y right-0">
+      <button
+        class="w-5 h-5 flex-center bg-gray/[16%] rounded-full p-1 transition-200 group hover:bg-red"
+        @click="clearDateFilter"
+      >
+        <span
+          class="icon-xmark text-gray text-[10px] transition-200 group-hover:text-white"
+        />
+      </button>
 
-    <button
-      class="flex-center group absolute-y right-0 px-3 h-full"
-      type="button"
-      @click="toggleMenu"
-    >
-      <i
-        class="icon-calendar transition-200 text-[18px] text-gray-700 group group-hover:text-blue"
-      />
-    </button>
+      <button class="flex-center group px-3" type="button" @click="toggleMenu">
+        <i
+          class="icon-calendar transition-200 text-[18px] text-gray-700 group group-hover:text-blue"
+        />
+      </button>
+    </div>
   </div>
 </template>
 
@@ -69,6 +75,7 @@ const props = defineProps<Props>();
 interface Emits {
   (event: "blur"): void;
   (event: "update:modelValue", value: string): void;
+  (e: "clearDateFilter"): void;
 }
 const emit = defineEmits<Emits>();
 
@@ -110,6 +117,9 @@ const inputMask = computed(() =>
 const inputPlaceholder = computed(() =>
   props.range ? `${t("dd_mm_yyyy")} - ${t("dd_mm_yyyy")}` : t("dd_mm_yyyy")
 );
+const clearDateFilter = () => {
+  emit("clearDateFilter");
+};
 
 const onChangeValue = (val: string) => {
   value.value = props.range

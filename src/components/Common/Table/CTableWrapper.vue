@@ -1,6 +1,21 @@
 <template>
   <div>
-    <CTableHeader :title="title" :subtitle="subtitle" @search="handleSearch" />
+    <CTableHeader
+      :search="filter.search"
+      :title="title"
+      :subtitle="subtitle"
+      @search="handleTableSearch"
+    >
+      <template #afterSearch>
+        <div class="flex-center space-x-5">
+          <FDatePicker v-model="filter.date" range class="min-w-[244px]" />
+          <CButton :text="$t('add')" class="!px-4" />
+        </div>
+      </template>
+      <template #beforeSearch>
+        <slot name="beforeSearch" />
+      </template>
+    </CTableHeader>
     <CTable
       :type="type"
       :total="data?.length"
@@ -9,7 +24,8 @@
       :current-page="currentPage"
       :loading="loading"
       :limit="limit"
-    />
+    >
+    </CTable>
     <Transition name="dropdown" mode="out-in">
       <CTableFooter
         v-if="!loading"
@@ -17,8 +33,8 @@
         :items-per-page="itemsPerPage"
         :limit="limit"
         :current-page="currentPage"
-        @items-per-page="handlePerPage"
-        @page-change="handlePage"
+        @items-per-page="handleLimitChange"
+        @page-change="handlePageChange"
       />
     </Transition>
   </div>
@@ -29,6 +45,10 @@ import CTable from "@/components/Common/Table/CTable.vue";
 import CTableHeader from "@/components/Common/Table/CTableHeader.vue";
 import CTableFooter from "@/components/Common/Table/CTableFooter.vue";
 import { ITableHead } from "@/types/components/table";
+import CButton from "@/components/Common/CButton.vue";
+import FDatePicker from "@/components/Form/Date/FDatePicker.vue";
+
+import { reactive } from "vue";
 
 interface Props {
   title?: string;
@@ -55,14 +75,28 @@ const emit = defineEmits<{
   (e: "pageChange", value: number): void;
 }>();
 
-function handleSearch(value: string) {
-  emit("search", value);
+const filter = reactive({
+  status: "all" as "true" | "false",
+  search: "",
+  date: undefined as string | undefined,
+  limit: 10,
+  page: 1,
+});
+
+function handleClearFilter() {
+  filter.date = undefined as string | undefined;
 }
-function handlePerPage(value: number) {
-  emit("itemsPerPage", value);
+function handleTableSearch(q: string) {
+  filter.search = q;
 }
-function handlePage(value: number) {
-  emit("pageChange", value);
+
+function handlePageChange(page: number) {
+  filter.page = page;
+}
+
+function handleLimitChange(limit: number) {
+  filter.limit = limit;
+  filter.page = 1;
 }
 </script>
 

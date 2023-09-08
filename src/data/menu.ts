@@ -14,7 +14,7 @@ interface IMenu {
 export const menu: IMenu[] = [
   {
     heading: "menus.news",
-    route: "/",
+    route: "/news",
     svgIcon: "icon-docs",
   },
   {
