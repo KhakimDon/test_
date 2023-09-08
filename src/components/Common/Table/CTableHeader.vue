@@ -15,18 +15,23 @@
       <Input
         v-model="search"
         v-if="!noSearch"
+        prefix-class="pr-2.5"
         :placeholder="$t(searchPlaceholder)"
         @update:modelValue="$emit('search', $event)"
       >
         <template #prefix>
-          <span class="icon-search"></span>
+          <span class="icon-search text-gray text-xl"></span>
         </template>
         <template #suffix>
           <button
             :class="{ '!opacity-100 !visible': search?.length }"
-            class="icon-xmark text-dark transition-200 hover:text-red opacity-0 invisible"
+            class="w-5 h-5 flex-center bg-gray/[16%] rounded-full p-1 transition-200 group hover:bg-red opacity-0 invisible"
             @click="clearSearch"
-          />
+          >
+            <span
+              class="icon-xmark text-gray text-[10px] transition-200 group-hover:text-white"
+            />
+          </button>
         </template>
       </Input>
       <div class="flex-shrink-0">
