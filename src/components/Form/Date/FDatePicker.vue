@@ -37,6 +37,7 @@
     </VueDatePicker>
     <div class="flex-center absolute-y right-0">
       <button
+        v-if="pickerValue"
         class="w-5 h-5 flex-center bg-gray/[16%] rounded-full p-1 transition-200 group hover:bg-red"
         @click="clearDateFilter"
       >
@@ -75,7 +76,6 @@ const props = defineProps<Props>();
 interface Emits {
   (event: "blur"): void;
   (event: "update:modelValue", value: string): void;
-  (e: "clearDateFilter"): void;
 }
 const emit = defineEmits<Emits>();
 
@@ -118,7 +118,7 @@ const inputPlaceholder = computed(() =>
   props.range ? `${t("dd_mm_yyyy")} - ${t("dd_mm_yyyy")}` : t("dd_mm_yyyy")
 );
 const clearDateFilter = () => {
-  emit("clearDateFilter");
+  value.value = "";
 };
 
 const onChangeValue = (val: string) => {
