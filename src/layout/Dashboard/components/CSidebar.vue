@@ -52,7 +52,7 @@
           </span>
         </div>
       </div>
-      <div id="sidebar-menu" class="flex flex-col py-5 gap-1">
+      <div class="flex flex-col py-5 gap-1">
         <div v-for="(menuItem, index) in menu" :key="index">
           <RouterLink
             v-if="!menuItem?.sub?.length"
@@ -136,7 +136,7 @@
                   v-for="(subMenuItem, idx) in menuItem?.sub"
                   :key="idx"
                   :to="subMenuItem?.route"
-                  class="p-3 pl-6 transition-300 block flex items-center gap-3 h-12 text-gray-700 group"
+                  class="p-3 pl-6 transition-300 flex items-center gap-3 h-12 text-gray-700 group"
                 >
                   <span
                     :class="{ '!text-white': location === subMenuItem?.route }"
@@ -163,24 +163,24 @@
     </div>
 
     <div v-if="isOpen || hovered" class="p-5">
+      <RouterLink
+        class="text-xs underline hover:opacity-60 transition-300"
+        to="/pages/privacy"
+      >
+        {{ $t("privacy_policy") }}
+      </RouterLink>
+      <p class="text-xs text-blue-200 mt-2.5">
+        {{ $t("version") }} {{ CONFIG.APP_VERSION }}
+      </p>
       <i18n-t
         keypath="supported_by"
         tag="div"
-        class="text-xs leading-normal text-blue-200 flex-y-center gap-2"
+        class="text-xs leading-normal text-blue-200 flex-y-center gap-2 mt-2.5"
       >
         <template #logo>
           <img src="/images/uic-logo.svg" alt="logo" />
         </template>
       </i18n-t>
-      <p class="text-xs leading-normal text-blue-200 mt-3">
-        {{ $t("version") }} {{ CONFIG.APP_VERSION }}
-      </p>
-      <!--      <RouterLink-->
-      <!--        class="text-xs underline hover:opacity-60 transition-300"-->
-      <!--        to="/pages/privacy"-->
-      <!--      >-->
-      <!--        privacy_policy-->
-      <!--      </RouterLink>-->
     </div>
   </div>
 </template>
@@ -189,24 +189,21 @@
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { computed, onMounted, ref } from "vue";
 
-import { menu } from "@/data/menu";
+import { IMenu, menu } from "@/data/menu";
 import { useRoute } from "vue-router";
 import LogoMain from "@/components/Logo/CLogo.vue";
+import { CONFIG } from "@/config";
 
-const openIndex = ref(null);
+const openIndex = ref<number>();
 const isOpen = ref(true);
 const hovered = ref(false);
 const route = useRoute();
 
-// const hasActiveChildren = (match: string) => {
-//   return route.path.indexOf(match) !== -1;
-// };
-
 const location = computed(() => route.path);
 
-function openMenu(index: number | null) {
+function openMenu(index?: number) {
   if (openIndex.value === index) {
-    openIndex.value = null;
+    openIndex.value = undefined;
   } else {
     openIndex.value = index;
   }
@@ -215,7 +212,7 @@ function openMenu(index: number | null) {
 function checkIndexActive() {
   menu.forEach((el, index) => {
     if (el?.sub?.length) {
-      el?.sub?.forEach((elSub: any) => {
+      el?.sub?.forEach((elSub) => {
         if (elSub?.route === location.value) {
           openIndex.value = index;
         }
@@ -230,11 +227,7 @@ onMounted(() => {
   }, 100);
 });
 
-function isActiveSub(arr: any[]) {
-  return arr.find((el: any) => el?.route === location.value);
+function isActiveSub(arr?: IMenu[]) {
+  return arr?.find((el) => el?.route === location.value);
 }
-
-const CONFIG = {
-  APP_VERSION: import.meta.env.VITE_APP_VERSION,
-};
 </script>

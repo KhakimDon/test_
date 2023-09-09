@@ -1,10 +1,11 @@
 <template>
   <div>
-    <teleport v-if="mounted" to="#header-breadcrumbs">
+    <Teleport v-if="mounted" to="#header-breadcrumbs">
       <SBreadcrumb v-bind="{ routes }" />
-    </teleport>
+    </Teleport>
+
     <div class="mt-7 bg-white p-10">
-      <FInput placeholder="Hello" />
+      <h1>Metronic Boilerplate Next</h1>
     </div>
   </div>
 </template>
@@ -12,19 +13,17 @@
 <script setup lang="ts">
 import { useMounted } from "@/composables/useMounted";
 import SBreadcrumb from "@/components/Common/CBreadcrumb.vue";
-import FInput from "@/components/Form/Input/FInput.vue";
 import { useI18n } from "vue-i18n";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 
 const { mounted } = useMounted();
 const { t } = useI18n();
 
 const routes = computed(() => [
   {
-    name: t("menus.news"),
+    name: "Dashboard",
     route: "/",
   },
 ]);
 
-const value = ref(true);
 </script>

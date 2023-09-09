@@ -1,69 +1,35 @@
-interface IMenu {
+import { RouteLocationRaw } from "vue-router";
+
+export interface IMenu {
   heading: string;
-  route: string;
-  svgIcon: string;
+  route: RouteLocationRaw;
+  svgIcon?: string;
   meta?: {
     role: string[];
   };
-  sub?: {
-    heading: string;
-    route: string;
-  }[];
+  sub?: IMenu[];
 }
 
 export const menu: IMenu[] = [
   {
-    heading: "menus.news",
-    route: "/news",
+    heading: "Menu 1",
+    route: "/",
     svgIcon: "icon-docs",
   },
   {
-    heading: "menus.posts",
+    heading: "Menu with sub",
     route: "",
     svgIcon: "icon-docs",
     sub: [
       {
-        heading: "menus.article_authors",
-        route: "/article/authors",
+        heading: "Submenu 1",
+        route: "",
       },
       {
-        heading: "menus.spec_reports",
-        route: "/article/reports",
-      },
-      {
-        heading: "menus.speakers",
-        route: "/article/speakers",
-      },
-      {
-        heading: "menus.discussion",
-        route: "/article/discussion",
+        heading: "Submenu 2",
+        route: "",
       },
     ],
-    meta: {
-      role: ["super_admin"],
-    },
-  },
-  {
-    heading: "menus.photo_report",
-    route: "/gallery",
-    svgIcon: "icon-photo",
-    meta: {
-      role: ["super_admin"],
-    },
-  },
-
-  {
-    heading: "menus.interview",
-    route: "/interview",
-    svgIcon: "icon-play",
-    meta: {
-      role: ["super_admin"],
-    },
-  },
-  {
-    heading: "menus.podcasts",
-    route: "/podcasts",
-    svgIcon: "icon-microphone",
     meta: {
       role: ["super_admin"],
     },

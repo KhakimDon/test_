@@ -2,13 +2,11 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import AuthRoutes from "@/modules/Auth/routes";
 import DashboardRoutes from "@/modules/Dashboard/routes";
 import ProfileRoutes from "@/modules/Profile/routes";
-import NewsRoutes from "@/modules/News/routes";
 
 const routes: Array<RouteRecordRaw> = [
   ...AuthRoutes,
   ...DashboardRoutes,
   ...ProfileRoutes,
-  ...NewsRoutes,
 
   {
     path: "/:pathMatch(.*)*",

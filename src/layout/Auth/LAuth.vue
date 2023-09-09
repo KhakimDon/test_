@@ -17,7 +17,7 @@
           {{ $t("privacy_policy") }}
         </RouterLink>
         <p class="text-xs leading-normal text-blue-100">
-          {{ $t("version") }} 7.1.2
+          {{ $t("version") }} {{ CONFIG.APP_VERSION }}
         </p>
       </div>
     </div>
@@ -43,6 +43,7 @@
 
 <script setup lang="ts">
 import SUicLogo from "@/components/Logo/CUicLogo.vue";
+import { CONFIG } from "../../config";
 </script>
 
 <style scoped></style>
