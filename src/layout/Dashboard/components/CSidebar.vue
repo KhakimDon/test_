@@ -65,10 +65,10 @@
               :class="[
                 menuItem?.svgIcon,
                 {
-                  '!text-blue-200': location === menuItem?.route,
+                  '!text-primary': location === menuItem?.route,
                 },
               ]"
-              class="text-xl text-gray group-hover:!text-blue-200 transition-300"
+              class="text-xl text-gray group-hover:!text-primary transition-300"
             />
             <CollapseTransition :duration="300" dimension="width">
               <p
@@ -97,13 +97,13 @@
                   :class="[
                     menuItem?.svgIcon,
                     {
-                      '!text-blue-200':
+                      '!text-primary':
                         location === menuItem?.route ||
                         openIndex ||
                         isActiveSub(menuItem?.sub),
                     },
                   ]"
-                  class="text-xl text-gray group-hover:!text-blue-200 transition-300"
+                  class="text-xl text-gray group-hover:!text-primary transition-300"
                 />
                 <CollapseTransition :duration="300" dimension="width">
                   <p

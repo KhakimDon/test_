@@ -4,7 +4,7 @@
       'transition-200 h-10 inline-flex items-center justify-start relative bg-gray-500 rounded-lg border border-transparent overflow-hidden w-full py-[11px] px-3 ',
       error
         ? '!border-red'
-        : 'focus-within:bg-transparent focus-within:border-blue-200',
+        : 'focus-within:bg-transparent focus-within:border-primary',
     ]"
   >
     <span :class="[prefixClass]">
