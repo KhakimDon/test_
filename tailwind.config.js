@@ -10,6 +10,14 @@ module.exports = {
         // },
       },
       colors: {
+        primary: {
+          DEFAULT: "#8469F6",
+          hover: "#8469F6"
+        },
+        secondary: {
+          DEFAULT: '#F2F2F2',
+          hover: "#F2F2F2"
+        },
         white: {
           DEFAULT: "#FFFFFF",
           50: "#FBFBFB",
@@ -47,7 +55,8 @@ module.exports = {
           700: "#596066",
         },
         dark: {
-          DEFAULT: "#191F2E",
+          DEFAULT: "#111014",
+          50: "#252429",
           100: "#121C25",
           200: "#2C3752",
           300: "#151516",

@@ -74,8 +74,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   itemClass:
-    "rounded-md w-7 h-7 flex-center transition-300 hover:!bg-blue-100 hover:!text-white text-sm leading-4 text-gray",
-  activeClass: "!bg-blue-100 !text-white",
+    "rounded-md w-7 h-7 flex-center transition-300 hover:!bg-primary hover:!text-white text-sm leading-4 text-gray",
+  activeClass: "!bg-primary !text-white",
 });
 const emit = defineEmits(["change", "input"]);
 const pageCount = computed(() => Math.ceil(props.total / props.limit));

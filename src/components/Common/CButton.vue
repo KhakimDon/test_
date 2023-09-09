@@ -68,9 +68,9 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const variants: Record<TButtonVariants, string> = {
-  primary: "bg-blue-100 text-white hover:bg-blue-400",
+  primary: "bg-primary text-white hover:bg-blue-400",
   secondary:
-    "bg-white-100 text-blue-800 hover:bg-white-300 hover:text-blue-800",
+    "bg-secondary text-dark hover:bg-secondary-hover hover:text-blue-800",
 };
 
 const sizes: Record<TButtonSizes, string> = {

@@ -143,3 +143,17 @@ export const newsTableHead = [
     key: "status",
   },
 ];
+
+
+export const companyCard = {
+  id: 1,
+  title: 'АО “Uzum Bank”',
+  type: "Банк",
+  image: '/images/fake/uzum.png'
+}
+
+export const userCard = {
+  id: 1,
+  full_name: 'Жасурбек Пулатов',
+  image: '/images/fake/user.png'
+}
