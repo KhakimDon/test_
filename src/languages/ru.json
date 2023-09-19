@@ -1,0 +1,15 @@
+{
+  "hello": "Hello",
+  "supported_by": "Supported by {logo}",
+  "privacy_policy": "Политика конфиденциальности",
+  "version": "Версия",
+  "enter_system": "Войти в систему",
+  "login": "Логин",
+  "enter_login": "Введите логин",
+  "password": "Пароль",
+  "enter_password": "Введите пароль",
+  "enter_code": "Введите код",
+  "we_send_code": "Мы отправили код подтверждения на ваш номер телефона",
+  "confirm_code": "Код подтверждения",
+  "confirm": "Подтвердить"
+}
