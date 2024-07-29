@@ -11,7 +11,8 @@
   "dependencies": {
     "localtunnel": "^2.0.2",
     "vue": "^3.4.29",
-    "vue3-marquee-slider": "^1.0.0"
+    "vue3-marquee-slider": "^1.0.0",
+    "@vueuse/core": "^10.11.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
