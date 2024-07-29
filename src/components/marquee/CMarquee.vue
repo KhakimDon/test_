@@ -1,21 +1,22 @@
 <template>
-  <div class="bg-gray-100 py-5">
-    <vue-marquee-slider
-        v-if="!loading"
-      id="marquee-slider-loop"
-      :speed="100500"
-      :auto-width="true"
-    >
-      <CMarqueeCard
-        v-for="(item, index) in result"
-        :key="index"
-        :company-data="item"
-      />
-    </vue-marquee-slider>
- <pre>{{result}}</pre>
-
-  </div>
-
+  <Transition name="fade" mode="out-in">
+    <div :key="loading">
+      <div   v-if="!loading" class="bg-gray-100 py-5">
+        <vue-marquee-slider
+            id="marquee-slider-loop"
+            :speed="100500"
+            :auto-width="true"
+        >
+          <CMarqueeCard
+              v-for="(item, index) in result"
+              :key="index"
+              :company-data="item"
+          />
+        </vue-marquee-slider>
+      </div>
+      <div v-else class="bg-gray-100 h-[72.23px]"/>
+    </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
@@ -30,7 +31,6 @@ import {onMounted, ref} from "vue";
 
 const result=ref(null)
 const fetchTradePrice = async (url: string) => {
-  loading.value = true;
   const response = await fetch(url);
   const data = await response.json();
   if (data.results && data.results.length > 0) {
