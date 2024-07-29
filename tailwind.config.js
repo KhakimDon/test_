@@ -10,6 +10,12 @@ export default {
         black: {
           DEFAULT: '#121214',
         },
+        gray:{
+          100:'#F2F2F2'
+        },
+        orange: {
+          DEFAULT: '#D66909',
+        }
       },
     },
     plugins: [],
