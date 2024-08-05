@@ -1,4 +1,4 @@
-# Metronic Boilerplate Next
+# go invest in app
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.uicgroup.tech/frontend-rd/metronic-boilerplate-next.git
+git remote add origin https://gitlab.uicgroup.tech/a.xamroyev/go-invest-in-app.git
 git branch -M master
 git push -uf origin master
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.uicgroup.tech/frontend-rd/metronic-boilerplate-next/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.uicgroup.tech/a.xamroyev/go-invest-in-app/-/settings/integrations)
 
 ## Collaborate with your team
 
