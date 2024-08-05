@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?gor337');
-  src:  url('fonts/icomoon.eot?gor337#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?gor337') format('truetype'),
-    url('fonts/icomoon.woff?gor337') format('woff'),
-    url('fonts/icomoon.svg?gor337#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?tmymn8');
+  src:  url('fonts/icomoon.eot?tmymn8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?tmymn8') format('truetype'),
+    url('fonts/icomoon.woff?tmymn8') format('woff'),
+    url('fonts/icomoon.svg?tmymn8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,51 +25,57 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-xmark:before {
-  content: "\e90d";
-}
-.icon-search:before {
-  content: "\e90e";
-}
-.icon-clock:before {
-  content: "\e90f";
-}
-.icon-chevron-2:before {
-  content: "\e90c";
-}
-.icon-tick:before {
-  content: "\e90b";
-}
-.icon-microphone:before {
-  content: "\e907";
-}
-.icon-play:before {
-  content: "\e908";
-}
-.icon-photo:before {
-  content: "\e909";
-}
-.icon-docs:before {
-  content: "\e90a";
-}
-.icon-calendar:before {
+.icon-close:before {
   content: "\e900";
 }
-.icon-chevron:before {
+.icon-vertical-settings:before {
   content: "\e901";
 }
-.icon-doc:before {
+.icon-briefcase:before {
   content: "\e902";
 }
-.icon-language:before {
+.icon-arrows-right-left:before {
   content: "\e903";
 }
-.icon-pen-square:before {
+.icon-arrows-diagonal:before {
   content: "\e904";
 }
-.icon-tick-circle:before {
+.icon-chevron-down:before {
   content: "\e905";
 }
-.icon-warning:before {
+.icon-home:before {
   content: "\e906";
+}
+.icon-dots:before {
+  content: "\e907";
+}
+.icon-chevron-left:before {
+  content: "\e908";
+}
+.icon-no-eyes:before {
+  content: "\e909";
+}
+.icon-plus:before {
+  content: "\e90a";
+}
+.icon-horizontal-settings:before {
+  content: "\e90b";
+}
+.icon-Vector-Stroke-13:before {
+  content: "\e90c";
+}
+.icon-search:before {
+  content: "\e90d";
+}
+.icon-charts-historgram:before {
+  content: "\e90e";
+}
+.icon-bookmark-fill:before {
+  content: "\e90f";
+}
+.icon-eyes:before {
+  content: "\e910";
+}
+.icon-bookmark:before {
+  content: "\e911";
 }
