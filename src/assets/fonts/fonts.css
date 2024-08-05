@@ -1,29 +1,103 @@
+/* Golos Text */
 @font-face {
-    font-family: "Roboto";
-    src: url("~/assets/fonts/Roboto-Regular.woff2") format("woff2");
-    font-weight: 400;
+    font-family: 'Golos Text';
+    src: url("@/assets/fonts/golostext/GolosText-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("~/assets/fonts/Roboto-Medium.woff2") format("woff2");
-    font-weight: 500;
+    font-family: 'Golos Text';
+    src: url("@/assets/fonts/golostext/GolosText-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("~/assets/fonts/Roboto-Bold.woff2") format("woff2");
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("~/assets/fonts/Roboto-Bold.woff2") format("woff2");
+    font-family: 'Golos Text';
+    src: url("@/assets/fonts/golostext/GolosText-Bold.woff2") format("woff2");
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Golos Text';
+    src: url("@/assets/fonts/golostext/GolosText-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Golos Text';
+    src: url("@/assets/fonts/golostext/GolosText-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Helvetica Neue */
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Heavy.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Black.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Roman.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
 }
 
 body {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
