@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN yarn
 COPY . .
-RUN npm run build
+RUN yarn build
 
 FROM nginx:alpine
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
