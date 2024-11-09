@@ -5,7 +5,7 @@ stages:
   - build_prod
   - deploy_prod
 
-build_image_master:
+build_image:
   stage: build_prod
   image: registry.uicgroup.tech/devops/docker:dind
   before_script:
@@ -17,3 +17,16 @@ build_image_master:
   only:
     - master
 
+deploy_image:
+  stage: deploy_prod
+  variables:
+    GIT_STRATEGY: none
+    GIT_SUBMODULE_STRATEGY: none
+  script:
+    - docker pull $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_IID
+    - docker rm -f goinvest-in-app
+    - docker run --name goinvest-in-app -d -p 3090:80 --restart always $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_IID
+  only:
+    - master
+  tags: 
+    - 94.158.63.62
