@@ -2401,10 +2401,10 @@ make-dir@^3.0.2, make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
-maska@^3.0.0`:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/maska/-/maska-3.0.0.tgz#151b54236ce9403f3498019a3eff064379dc627f"
-  integrity sha512-EzSOhRgoSmMauUY8JsG7dB1OnYNxSBEnFi0kA4r3ZmXyW6F6NMkKrskeaBXfq31Ox3dGGycrHq5PsLvaGnHsBQ==
+maska@^3.0.0:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/maska/-/maska-3.0.3.tgz#36e3c2c77bf35db09842f318315c590e2855a9ce"
+  integrity sha512-ItFbuqVeBKk1JmC4QCRxKeNaX+Ym/oMUYZVXwvAPKAwMeO4bYZpIGjNWOcZy+L8YXQaPvCZ68+5eYpGRdyaA8w==
 
 mdast-util-from-markdown@^0.8.5:
   version "0.8.5"
