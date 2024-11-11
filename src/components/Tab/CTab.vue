@@ -1,71 +1,79 @@
 <template>
   <div
-    class="main-tab space-x-5 relative bg-white/12 flex w-max transition-all duration-200 border-b border-solid border-gray-300 dark:border-gray-300/10"
+    :class="[variants[variant].wrapper, $attrs.class]"
+    class="space-x-0.5 flex p-0.5 rounded-lg w-full relative"
   >
     <div
-      :class="activeClass"
-      :style="{ width: `${active.width}`, left: `${active.left}px` }"
-      class="absolute h-[2px] bg-blue-200 w-full -bottom-px transition-all duration-200"
-    ></div>
+      v-if="variant === 'secondary'"
+      class="w-full h-0.5 bg-slate-100 dark:bg-gray absolute bottom-0"
+    />
     <button
       v-for="(tab, idx) in list"
-      :id="`item_${tab.value}`"
+      :id="`item_${tab[valueKey]}`"
       :key="idx"
       :class="[
-        itemClass,
-        localeValue === tab.value ? 'text-blue-200 ' : 'text-gray',
+        optionClass,
+        {
+          'w-fit px-2': variant === 'secondary',
+          'text-white bg-blue': localeValue === tab[valueKey],
+        },
       ]"
-      class="py-4 transition-all duration-200 w-max text-lg font-medium z-10 hover:text-blue-200 font-medium"
-      @click="pick(tab.value, $event)"
+      class="py-1.5 rounded-md w-full text-lg text-dark dark:text-white font-medium z-10 relative transition-300"
+      @click="pick(tab[valueKey], $event, tab?.routeName)"
     >
-      {{ tab.label }}
+      <span class="relative z-[2] text-sm">
+        {{ tab[labelKey] }}
+      </span>
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
-import { ITabItem } from "@/components/Tab/CTab.types";
+import { defineModel, onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 
 interface Props {
   modelValue: string | number;
-  list: ITabItem[];
-  itemClass?: string;
+  list: Record<string, string>[];
+  optionClass?: string;
+  labelClass?: string;
   activeClass?: string;
+  variant?: "primary" | "secondary";
+  asLink?: boolean;
+  valueKey?: string;
+  labelKey?: string;
 }
-
-const props = withDefaults(defineProps<Props>(), {
-  modelValue: "complain",
-  list: () => [
-    {
-      label: "О себе",
-      value: "ProductReview",
-    },
-    {
-      label: "Статьи",
-      value: "ProductReview2",
-    },
-    {
-      label: "Социальные сети",
-      value: "ProductReview3",
-    },
-  ],
-});
 
 interface Emits {
   (e: "update:modelValue", value: string | number): void;
 }
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: "primary",
+  asLink: false,
+  valueKey: "value",
+  labelKey: "label",
+});
 const emit = defineEmits<Emits>();
+const modelValue = defineModel();
 
-const localeValue = ref(props?.modelValue);
+const router = useRouter();
 
+const localeValue = ref(modelValue);
 const active = ref({ left: 0, width: "0px" });
-const pick = (tab: string | number, e?: { target: HTMLButtonElement }) => {
+const pick = (
+  tab: string | number,
+  e?: { target: HTMLButtonElement },
+  route?: string
+) => {
   const target = e.target as HTMLButtonElement;
   active.value = {
     left: target?.offsetLeft,
     width: target?.offsetWidth + "px",
   };
+  if (route) {
+    router.push({ name: route });
+  }
   localeValue.value = tab;
   emit("update:modelValue", tab);
 };
@@ -78,4 +86,15 @@ onMounted(() => {
     pick(props.modelValue, { target: item });
   }, 10);
 });
+
+const variants = {
+  primary: {
+    wrapper: "bg-slate-100 dark:bg-gray",
+    tab: "h-full top-0 bottom-0",
+  },
+  secondary: {
+    wrapper: "bg-transparent rounded-none",
+    tab: "h-0.5 bottom-0",
+  },
+};
 </script>

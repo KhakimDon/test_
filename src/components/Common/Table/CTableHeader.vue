@@ -1,10 +1,10 @@
 <template>
   <header class="flex justify-between mb-6">
     <div>
-      <h2 class="text-xl leading-23 font-medium text-dark-100">
+      <h2 class="text-xl leading-23 font-medium text-gray-700">
         {{ title }}
       </h2>
-      <p class="text-xs leading-14 font-normal text-gray-200 mt-1.5">
+      <p class="text-xs leading-14 font-normal text-gray-100 mt-1.5">
         {{ subtitle }}
       </p>
     </div>
@@ -13,10 +13,10 @@
         <slot name="beforeSearch" />
       </div>
       <Input
-        v-model="search"
         v-if="!noSearch"
-        prefix-class="pr-2.5"
+        v-model="search"
         :placeholder="$t(searchPlaceholder)"
+        prefix-class="pr-2.5"
         @update:modelValue="$emit('search', $event)"
       >
         <template #prefix>
@@ -41,7 +41,7 @@
   </header>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import Input from "@/components/Form/Input/FInput.vue";
 
 import { ref, watch } from "vue";
@@ -53,6 +53,7 @@ interface Props {
   subtitle?: string;
   noSearch?: boolean;
 }
+
 const props = withDefaults(defineProps<Props>(), {
   searchPlaceholder: "search",
 });

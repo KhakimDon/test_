@@ -29,16 +29,16 @@
         <h5 class="font-semibold text-base text-dark mb-px">
           {{ user.fullName }}
         </h5>
-        <p class="text-sm text-gray-200">{{ user.subtitle }}</p>
+        <p class="text-sm text-gray-100">{{ user.subtitle }}</p>
       </div>
     </div>
 
     <ul>
       <li
-        class="transition-200 py-4 pl-[33px] pr-3 flex flex-col gap-1 text-sm w-full text-dark hover:bg-white-100/[0.24]"
         v-for="(item, idx) in dropdownItems"
         :key="idx"
         :class="item?.styles"
+        class="transition-200 py-4 pl-[33px] pr-3 flex flex-col gap-1 text-sm w-full text-dark hover:bg-white-100/[0.24]"
         @click="item.action"
       >
         {{ item.label }}
@@ -71,6 +71,7 @@ interface Props {
     event?: string;
   }[];
 }
+
 defineProps<Props>();
 
 const router = useRouter();

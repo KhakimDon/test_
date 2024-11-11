@@ -1,53 +1,47 @@
 <template>
-  <div class="flex items-center">
+  <div class="container">
     <div
-      v-for="(route, index) in routes"
-      :key="index"
-      class="flex items-center"
-      :class="[checkLastRoute(index), `text-[${textColor}]`]"
+      class="flex justify-between items-center text-dark dark:text-white-100 w-full py-4"
     >
-      <RouterLink
-        v-if="route.link"
-        class="transition duration-500"
-        :to="route.route"
-      >
-        {{ route.name }}
+      <div class="min-w-6">
+        <button
+          v-if="hasChevron"
+          class="icon-chevron-left text-lg"
+          @click="router.go(-1)"
+        />
+      </div>
+      <p v-if="title" class="font-medium leading-5">{{ $t(title) }}</p>
+      <RouterLink v-else to="/">
+        <img
+          :src="isDark ? '/images/logo.png' : '/images/dark-logo.png'"
+          alt="go invest app"
+          class="w-full max-w-28 object-center object-contain"
+        />
       </RouterLink>
-      <p v-else-if="route.disabled">{{ route.name }}</p>
-      <RouterLink v-else class="transition duration-500" :to="route.route">
-        {{ route.name }}
-      </RouterLink>
-      <span
-        v-if="index !== routes.length - 1"
-        class="mx-2 w-1 h-1 bg-blue-200 rounded-full"
-      ></span>
+      <button
+        class="icon-close text-base size-8 bg-[#C1C4D999] dark:bg-gray rounded-full text-dark dark:text-white-100"
+        @click="router.go(-1)"
+      />
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-interface IRoute {
-  name: string;
-  route: string;
-  target?: boolean;
-  link?: boolean;
-  disabled?: boolean;
-}
+<script lang="ts" setup>
+import router from "@/router";
+import { useThemeMode } from "@/composables/useThemeMode";
+import { computed } from "vue";
 
 export interface Props {
-  routes: IRoute[];
-  hoverColor: string;
-  textColor: string;
+  title?: string;
+  hasLogo?: boolean;
+  hasChevron?: boolean;
 }
-const props = withDefaults(defineProps<Props>(), {
-  hoverColor: "#52618F",
-  textColor: "#191F2E",
+
+const { theme } = useThemeMode();
+
+const isDark = computed(() => {
+  return theme.value === "dark";
 });
-const checkLastRoute = (index: number) => {
-  if (index === props.routes.length - 1) {
-    return "font-medium text-gray cursor-not-allowed pointer-events-none";
-  } else {
-    return "font-medium text-dark hover:text-blue-100 cursor-pointer";
-  }
-};
+
+defineProps<Props>();
 </script>

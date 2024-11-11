@@ -1,118 +1,139 @@
 <template>
-  <div class="relative" ref="select">
+  <div ref="select">
+    <Transition name="fade">
+      <div
+        v-if="isOpen"
+        class="fixed top-0 left-0 w-full h-screen bg-[#111217D4] z-[101]"
+        @click="close"
+      />
+    </Transition>
     <!--  SELECTED OPTION  -->
     <div
-      class="transition-200 px-3 py-[9px] bg-gray/[0.04] transition-all duration-300 border border-transparent cursor-pointer flex items-center justify-between rounded-lg"
-      tabindex="1"
       :class="[
         selectedOptionStyles,
         error ? '!border-red' : '',
-        { 'focus-within:border-gray-100': disabled },
+        { 'opacity-75': disabled },
       ]"
-      @click="toggleSelect(!showOptions)"
+      class="transition-200 px-3 py-2.5 bg-slate-100 dark:bg-gray transition-all duration-300 border border-transparent cursor-pointer flex items-center justify-between rounded-lg min-h-[45px] gap-1"
+      tabindex="1"
+      @click="open"
     >
-      <slot name="selectedOption" :value="value">
+      <slot :value="selectedValue" name="selectedOption">
         <p
+          v-if="!selectedValue"
+          :class="{ '!text-dark dark:text-white': disabled }"
+          class="font-medium text-dark dark:text-white select-none text-sm leading-130"
           tabindex="1"
-          v-if="!value"
-          class="font-medium text-gray select-none text-sm leading-140"
-          :class="{ '!text-gray': disabled }"
         >
           {{ placeholder ?? $t("select") }}
         </p>
         <p
           v-else
-          class="font-medium select-none text-sm text-gray leading-140"
-          tabindex="1"
           :class="[{ '!text-gray': disabled }, selectedStyles]"
+          class="font-medium select-none text-sm text-dark dark:text-white leading-140"
+          tabindex="1"
         >
-          {{ value[labelKey] || value }}
+          {{ selectedValue[labelKey] }}
         </p>
 
         <slot name="chevron">
           <span
-            class="icon-chevron flex-center h-5 transition-200 text-lg text-gray-700 inline-block shrink-0"
-            :class="{ 'rotate-180': showOptions }"
-          >
-          </span>
+            :class="[{ 'rotate-180': isOpen }, iconClass]"
+            class="icon-chevron-down1 flex-center h-5 transition-200 text-sm text-dark dark:text-white inline-block shrink-0"
+          />
         </slot>
       </slot>
     </div>
     <!--  OPTIONS  -->
     <Transition name="dropdown">
-      <ul
-        v-if="showOptions && !disabled"
-        :key="showOptions"
-        class="absolute top-full w-full bg-white border border-white-100 z-10 translate-y-3 overflow-hidden max-h-[300px] overflow-y-scroll text-white rounded-md shadow-select"
+      <div
+        v-if="isOpen && !disabled"
+        class="fixed bottom-3 left-0 w-full bg-white dark:bg-dark select-none z-[102] rounded-t-3xl px-5 pb-4 text-dark dark:text-white"
       >
-        <slot name="options">
-          <li
-            v-for="(option, idx) in options"
-            :key="idx"
-            class="transition-300 cursor-pointer hover:bg-white-100/[0.24]"
-            @click="onSelect(option)"
-          >
-            <p
-              class="flex-y-center space-x-1.5 p-3"
-              :class="{
-                'border-b border-white-100': idx !== options.length - 1,
-              }"
+        <ul :key="isOpen">
+          <slot name="options">
+            <!-- HEADER -->
+            <li class="flex-center-between p-4">
+              <span />
+
+              <p class="text-lg text-dark dark:text-white font-medium">
+                {{ placeholder }}
+              </p>
+
+              <button class="icon-close text-2xl" @click="close" />
+            </li>
+
+            <!--  OPTIONS -->
+            <li
+              v-for="(option, idx) in options"
+              :key="idx"
+              class="transition-300 cursor-pointer"
+              @click="onSelect(option)"
             >
-              <slot name="option" :option="option" :index="idx">
-                <span
-                  class="text-dark text-[13px]"
-                  :class="{ 'font-medium': isActive(option) }"
-                >
-                  {{ option[labelKey] }}
-                </span>
-                <i
-                  v-if="isActive(option)"
-                  class="icon-tick text-base text-blue-100"
-                ></i>
-              </slot>
-            </p>
-          </li>
+              <p class="flex-y-center space-x-1.5 py-2.5">
+                <slot :index="idx" :option="option" name="option">
+                  <FRadio
+                    :model-value="selectedValue?.[valueKey]"
+                    :value="option?.[valueKey]"
+                  >
+                    <span
+                      :class="{ 'font-medium': isActive(option) }"
+                      class="text-dark dark:text-white text-sm"
+                    >
+                      {{ option[labelKey] }}
+                    </span>
+                  </FRadio>
+                </slot>
+              </p>
+            </li>
+          </slot>
+        </ul>
+        <slot name="footer">
+          <CButton :text="$t('submit')" class="w-full mt-3" @click="close" />
         </slot>
-      </ul>
+      </div>
     </Transition>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import { defineModel, ref, watch } from "vue";
 import { onClickOutside } from "@vueuse/core";
-import { ref, watch } from "vue";
-import { TClassName } from "@/types/common";
-type TOption = string | number | { [key: string]: string | number };
 
-export interface Props {
-  modelValue?: TOption;
+import type { TClassName } from "@/types/common";
+import CButton from "~/components/Base/CButton.vue";
+import FRadio from "@/components/Form/Radio/FRadio.vue";
+import useToggle from "@/composables/useToggle";
+import { TOption } from "@/types/components";
+
+interface Props {
   options: TOption[];
   labelKey: string;
   valueKey: string;
-  placeholder?: string;
+  placeholder: string;
   selectedOptionStyles?: TClassName;
   selectedStyles?: TClassName;
+  iconClass?: TClassName;
   dark?: boolean;
   error?: boolean;
   disabled?: boolean;
 }
+
+interface Emits {
+  (e: "update:modelValue", value: boolean): void;
+}
+
 const props = withDefaults(defineProps<Props>(), {
   labelKey: "name",
   valueKey: "id",
 });
+const modelValue = defineModel<TOption>();
+const emit = defineEmits<Emits>();
 
-const emit = defineEmits<{
-  (e: "on-toggle", value: boolean): void;
-  (e: "update:modelValue", value: boolean): void;
-  (e: "load"): void;
-  (e: "on-select", value: TOption): void;
-}>();
+const { isOpen, open, close } = useToggle();
 
-const showOptions = ref(false);
-function toggleSelect(newValue = showOptions.value) {
-  showOptions.value = newValue;
-  emit("on-toggle", showOptions.value);
-}
+const selectedValue = ref(findOption(modelValue.value));
+const select = ref<HTMLDivElement | null>();
 
 function findOption(option: TOption) {
   return props.options.find(
@@ -120,32 +141,27 @@ function findOption(option: TOption) {
   );
 }
 
-const value = ref(findOption(props.modelValue));
 function onSelect(option: TOption) {
-  value.value = option;
-  toggleSelect(false);
-  emit("update:modelValue", option[props.valueKey] || option);
-  emit("on-select", option);
+  selectedValue.value = option;
+  emit("update:modelValue", option[props.valueKey]);
 }
 
-const select = ref();
-onClickOutside(select, () => toggleSelect(false));
+onClickOutside(select, close);
 
 function isActive(option: TOption) {
   return (
-    option === value.value ||
-    option[props.valueKey as keyof typeof option] === value.value ||
-    (typeof value.value === "object" &&
+    option === selectedValue.value ||
+    option[props.valueKey as keyof typeof option] === selectedValue.value ||
+    (typeof selectedValue.value === "object" &&
       option[props.valueKey as keyof typeof option] ===
-        value.value[props.valueKey])
+        selectedValue.value[props.valueKey])
   );
 }
 
 watch(
-  () => props.modelValue,
+  () => modelValue.value,
   (newValue) => {
-    value.value = findOption(newValue);
-  },
-  { immediate: true }
+    selectedValue.value = findOption(newValue);
+  }
 );
 </script>

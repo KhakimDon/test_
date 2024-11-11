@@ -2,13 +2,13 @@
   <div>
     <CTableHeader
       :search="filter.search"
-      :title="title"
       :subtitle="subtitle"
+      :title="title"
       @search="handleTableSearch"
     >
       <template #afterSearch>
         <div class="flex-center space-x-5">
-          <FDatePicker v-model="filter.date" range class="min-w-[244px]" />
+          <FDatePicker v-model="filter.date" class="min-w-[244px]" range />
           <CButton :text="$t('add')" class="!px-4" />
         </div>
       </template>
@@ -17,22 +17,22 @@
       </template>
     </CTableHeader>
     <CTable
-      :type="type"
-      :total="data?.length"
+      :current-page="currentPage"
       :data="data"
       :head="head"
-      :current-page="currentPage"
-      :loading="loading"
       :limit="limit"
+      :loading="loading"
+      :total="data?.length"
+      :type="type"
     >
     </CTable>
-    <Transition name="dropdown" mode="out-in">
+    <Transition mode="out-in" name="dropdown">
       <CTableFooter
         v-if="!loading"
-        :total="total"
+        :current-page="currentPage"
         :items-per-page="itemsPerPage"
         :limit="limit"
-        :current-page="currentPage"
+        :total="total"
         @items-per-page="handleLimitChange"
         @page-change="handlePageChange"
       />
@@ -40,15 +40,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import { reactive } from "vue";
+
 import CTable from "@/components/Common/Table/CTable.vue";
 import CTableHeader from "@/components/Common/Table/CTableHeader.vue";
 import CTableFooter from "@/components/Common/Table/CTableFooter.vue";
 import { ITableHead } from "@/types/components/table";
-import CButton from "@/components/Common/CButton.vue";
+import CButton from "@/components/Basse/CButton.vue";
 import FDatePicker from "@/components/Form/Date/FDatePicker.vue";
-
-import { reactive } from "vue";
 
 interface Props {
   title?: string;
@@ -66,6 +66,7 @@ interface Props {
   currentPage: number;
   itemsPerPage: number;
 }
+
 withDefaults(defineProps<Props>(), {
   type: "transparent",
 });
@@ -86,6 +87,7 @@ const filter = reactive({
 function handleClearFilter() {
   filter.date = undefined as string | undefined;
 }
+
 function handleTableSearch(q: string) {
   filter.search = q;
 }
