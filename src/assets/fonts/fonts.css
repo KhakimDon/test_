@@ -42,7 +42,7 @@
 /* Helvetica Neue */
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('@/assets/fonts/helvetica/helveticaneue.woff2') format('woff2');
+    src: url('@/assets/fonts/helvetica/HelveticaNeue.woff2') format('woff2');
     font-weight: 400; /* regular */
     font-style: normal;
     font-display: swap;
@@ -50,7 +50,7 @@
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('@/assets/fonts/helvetica/helveticaneue-medium.woff2') format('woff2');
+    src: url('@/assets/fonts/helvetica/HelveticaNeue-Medium.woff2') format('woff2');
     font-weight: 700; /* Bold */
     font-style: normal;
     font-display: swap;
@@ -58,7 +58,7 @@
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('@/assets/fonts/helvetica/helveticaneue-medium.woff2') format('woff2');
+    src: url('@/assets/fonts/helvetica/HelveticaNeue-Medium.woff2') format('woff2');
     font-weight: 500; /* Medium */
     font-style: normal;
     font-display: swap;
@@ -66,7 +66,7 @@
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('@/assets/fonts/helvetica/helveticaneue-thin.woff2') format('woff2');
+    src: url('@/assets/fonts/helvetica/HelveticaNeue-Thin.woff2') format('woff2');
     font-weight: 100; /* Thin */
     font-style: normal;
     font-display: swap;
