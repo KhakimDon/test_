@@ -3,13 +3,12 @@ import "vue-toastification/dist/index.css";
 import { App } from "vue";
 import Toast from "vue-toastification";
 import CommonToast from "@/components/CToast.vue";
-import Maska from "maska";
 
 export default function definePlugins(app: App): App {
   //Toast Notification
   const options = {
     position: "top-right",
-    timeout: 5000,
+    timeout: 3000,
     closeOnClick: true,
     pauseOnFocusLoss: true,
     pauseOnHover: true,
@@ -25,7 +24,6 @@ export default function definePlugins(app: App): App {
     component: CommonToast,
   };
 
-  app.use(Maska);
   app.use(Toast, options);
   return app;
 }

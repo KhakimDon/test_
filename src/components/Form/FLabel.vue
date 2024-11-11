@@ -1,18 +1,20 @@
 <template>
   <label
-    class="text-sm font-medium text-dark"
-    :class="labelClass"
-    :for="forText"
+    :class="$attrs.class"
+    :for="id"
+    class="text-sm font-normal text-gray-100"
   >
-    {{ label }}
+    <span>
+      {{ label }}
+    </span>
+    <slot />
   </label>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 interface Props {
   label: string;
-  labelClass?: string;
-  forText?: string;
+  id?: string;
 }
 
-withDefaults(defineProps<Props>(), {});
+defineProps<Props>();
 </script>

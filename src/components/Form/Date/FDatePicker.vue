@@ -1,16 +1,7 @@
 <template>
   <div class="c-date-picker relative">
     <VueDatePicker
-      v-bind="{ range, yearRange, formatLocale }"
       ref="datePicker"
-      auto-apply
-      :month-change-on-scroll="false"
-      text-input
-      :text-input-options="{
-        enterSubmit: true,
-        openMenu: false,
-        format: 'dd.MM.yyyy',
-      }"
       :hide-navigation="[
         'month',
         'year',
@@ -21,17 +12,26 @@
         'seconds',
       ]"
       :model-value="pickerValue"
+      :month-change-on-scroll="false"
+      :text-input-options="{
+        enterSubmit: true,
+        openMenu: false,
+        format: 'dd.MM.yyyy',
+      }"
+      auto-apply
       format="dd.MM.yyyy"
+      text-input
+      v-bind="{ range, yearRange, formatLocale }"
       @update:modelValue="onChangeValue"
     >
       <template #dp-input>
         <FInput
-          v-bind="{ error }"
           v-maska="inputMask"
           :model-value="value"
           :placeholder="inputPlaceholder"
-          @update:modelValue="value = $event"
+          v-bind="{ error }"
           @blur="emit('blur')"
+          @update:modelValue="selectedValue = $event"
         />
       </template>
     </VueDatePicker>
@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import "@vuepic/vue-datepicker/dist/main.css";
 
 import VueDatePicker from "@vuepic/vue-datepicker";
@@ -71,12 +71,15 @@ interface Props {
   error?: boolean;
   range?: boolean;
 }
+
 const props = defineProps<Props>();
 
 interface Emits {
   (event: "blur"): void;
+
   (event: "update:modelValue", value: string): void;
 }
+
 const emit = defineEmits<Emits>();
 
 const { locale, t } = useI18n();

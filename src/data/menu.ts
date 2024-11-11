@@ -1,37 +1,30 @@
 import { RouteLocationRaw } from "vue-router";
 
 export interface IMenu {
-  heading: string;
+  label: string;
   route: RouteLocationRaw;
-  svgIcon?: string;
-  meta?: {
-    role: string[];
-  };
-  sub?: IMenu[];
+  icon: `icon-${string}`;
 }
 
 export const menu: IMenu[] = [
   {
-    heading: "Menu 1",
-    route: "/",
-    svgIcon: "icon-docs",
+    label: "menu.main",
+    route: { path: "/" },
+    icon: "icon-home",
+  },
+  // {
+  //   label: "menu.portfolio",
+  //   route: { path: "/portfolio" },
+  //   icon: "icon-briefcase",
+  // },
+  {
+    label: "menu.market",
+    route: { path: "/market" },
+    icon: "icon-charts-historgram",
   },
   {
-    heading: "Menu with sub",
-    route: "",
-    svgIcon: "icon-docs",
-    sub: [
-      {
-        heading: "Submenu 1",
-        route: "",
-      },
-      {
-        heading: "Submenu 2",
-        route: "",
-      },
-    ],
-    meta: {
-      role: ["super_admin"],
-    },
+    label: "menu.transactions",
+    route: { path: "/transactions" },
+    icon: "icon-arrows-right-left",
   },
 ];

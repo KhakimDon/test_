@@ -9,6 +9,7 @@
 .fade-enter-active {
     animation: Fade 0.2s ease;
 }
+
 .fade-leave-active {
     animation: Fade 200ms ease-in reverse forwards;
 }
@@ -22,41 +23,22 @@
     }
 }
 
-.dropdown-enter-active {
-    animation: Fade 0.2s ease;
-}
-.dropdown-leave-active {
-    animation: Fade 200ms ease-in reverse forwards;
-}
-
-@keyframes Fade {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-
-    }
-}
-
 @keyframes dropdown {
     0% {
         opacity: 0;
-        transform: translateY(-5px);
+        transform: translateY(100px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
 .dropdown-enter-active {
-    animation: dropdown 0.15s linear;
+    animation: dropdown 150ms linear;
 }
 
 .dropdown-leave-active {
-    animation: dropdown 0.15s linear reverse;
+    animation: dropdown 150ms linear reverse;
 }
 
 

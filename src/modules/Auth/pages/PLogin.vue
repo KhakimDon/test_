@@ -1,61 +1,54 @@
 <template>
-  <div class="w-[335px]">
-    <Transition :name="transitionName" mode="out-in">
-      <div :key="step">
-        <SStepLogin v-if="step === 1" v-bind="{ form }" @submit="step = 2" />
-        <SStepConfirm
-          v-if="step === 2"
-          v-bind="{ phone }"
-          @back="step = 1"
-          @submit="toHome"
-        />
-      </div>
-    </Transition>
+  <div class="max-w-phone w-full">
+    <CBreadcrumb :title="$t('breadcrumb.login')" />
+    <CModal v-model="isOpen" has-header title="">
+      <template #trigger>
+        <SStepLogin v-bind="{ form }" @submit="open" />
+      </template>
+
+      <SStepConfirm @cancel="close" @submit="handleSubmit" />
+    </CModal>
   </div>
 </template>
 
-<script setup lang="ts">
-import { useForm } from "@/composables/useForm";
+<script lang="ts" setup>
 import { required } from "@vuelidate/validators";
-import { useRouter } from "vue-router";
+
+import { useForm } from "@/composables/useForm";
+import useToggle from "@/composables/useToggle";
+
 import SStepLogin from "@/modules/Auth/components/SStepLogin.vue";
-import { ref, watch } from "vue";
+import CBreadcrumb from "@/components/Common/CBreadcrumb.vue";
+import CModal from "@/components/Base/CModal.vue";
 import SStepConfirm from "@/modules/Auth/components/SStepConfirm.vue";
 
-const router = useRouter();
-
-const phone = ref("+998996753211");
-
-const step = ref(2);
-
+const { isOpen, open, close } = useToggle();
 const form = useForm(
   {
-    name: "",
+    brokerAccount: "",
     password: "",
+    securePassword: "",
+    login: "",
   },
   {
-    name: {
+    brokerAccount: {
       required,
     },
     password: {
       required,
+      minLength: 8,
+    },
+    securePassword: {
+      required,
+    },
+    login: {
+      required,
     },
   }
 );
 
-function toHome() {
-  router.push({ name: "Index" });
+function handleSubmit() {
+  console.log("submitted");
+  close();
 }
-
-const transitionName = ref("slide-right");
-watch(
-  () => step.value,
-  (newValue, oldValue) => {
-    if (newValue < oldValue) {
-      transitionName.value = "slide-left";
-    } else {
-      transitionName.value = "slide-right";
-    }
-  }
-);
 </script>

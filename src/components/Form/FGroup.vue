@@ -1,20 +1,21 @@
 <template>
-  <div class="flex flex-col gap-2 w-full">
+  <div :class="$attrs.class" class="flex flex-col gap-3 w-full">
     <div class="flex-center-between w-full">
-      <Label v-bind="{ forText, label }" />
+      <Label :class="labelClass" v-bind="{ for: forText, label }" />
       <slot name="labelOpposite" />
     </div>
     <slot />
   </div>
 </template>
 
-<script setup lang="ts">
-import Label from "@/components/Form/FLabel.vue";
+<script lang="ts" setup>
+import Label from "~/components/Form/FLabel.vue";
 
 interface Props {
   label: string;
   isRightLabel?: boolean;
   rightLabel?: boolean;
+  labelClass?: string;
   tooltip?: boolean;
   tooltipText?: string;
   forText?: string;

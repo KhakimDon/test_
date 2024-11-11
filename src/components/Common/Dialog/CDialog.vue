@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <Transition name="fade" mode="in-out" appear>
       <div
         v-if="show"
@@ -7,6 +8,7 @@
         @click="$emit('close')"
       />
     </Transition>
+
     <Transition name="modal">
       <dialog
         id="ModalBg"
@@ -44,6 +46,18 @@
   </div>
 </template>
 <script setup lang="ts">
+const myBottomSheet = ref<InstanceType<typeof VueBottomSheet>>()
+
+const open = () => {
+  myBottomSheet.value.open();
+}
+
+const close = () => {
+  myBottomSheet.value.close();
+}
+
+///
+
 import { onMounted, onBeforeUnmount } from "vue";
 
 interface Props {

@@ -42,62 +42,66 @@
 /* Helvetica Neue */
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Heavy.woff2") format("woff2");
-    font-weight: 900;
+    src: url('@/assets/fonts/helvetica/helveticaneue.woff2') format('woff2');
+    font-weight: 400; /* regular */
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Black.woff2") format("woff2");
-    font-weight: 800;
+    src: url('@/assets/fonts/helvetica/helveticaneue-medium.woff2') format('woff2');
+    font-weight: 700; /* Bold */
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Bold.woff2") format("woff2");
-    font-weight: 700;
+    src: url('@/assets/fonts/helvetica/helveticaneue-medium.woff2') format('woff2');
+    font-weight: 500; /* Medium */
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Medium.woff2") format("woff2");
-    font-weight: 500;
+    src: url('@/assets/fonts/helvetica/helveticaneue-thin.woff2') format('woff2');
+    font-weight: 100; /* Thin */
     font-style: normal;
     font-display: swap;
 }
+
+/* Euclid circular */
+/*@font-face {*/
+/*    font-family: 'Euclid circular';*/
+/*    src: url('@/assets/fonts/euclid/Euclid-Circular-Bold.woff2') format('woff2');*/
+/*    font-weight: 1000; !* Bold *!*/
+/*    font-style: normal;*/
+/*    font-display: swap;*/
+/*}*/
+
+
+/*@font-face {*/
+/*    font-family: 'Euclid circular';*/
+/*    src: url('@/assets/fonts/euclid/Euclid-Circular-Medium.woff2') format('woff2');*/
+/*    font-weight: 600; !* Medium *!*/
+/*    font-style: normal;*/
+/*    font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'Euclid circular';*/
+/*    src: url('@/assets/fonts/euclid/Euclid-Circular-Regular.woff2') format('woff2');*/
+/*    font-weight: 400; !* Regular *!*/
+/*    font-style: normal;*/
+/*    font-display: swap;*/
+/*}*/
 
 @font-face {
-    font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Roman.woff2") format("woff2");
-    font-weight: 400;
+    font-family: 'Euclid circular';
+    src: url('@/assets/fonts/euclid/Euclid-Circular-SemiBold.ttf');
+    font-weight: 600; /* Semi Bold */
     font-style: normal;
     font-display: swap;
-}
-
-@font-face {
-    font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Helvetica Neue';
-    src: url("@/assets/fonts/helvetica/HelveticaNeueCyr-Thin.woff2") format("woff2");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-body {
-    font-family: 'Helvetica Neue', sans-serif !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }

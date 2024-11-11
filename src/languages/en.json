@@ -1,4 +1,28 @@
 {
   "hello": "Hello",
-  "supported_by": "Supported by {logo}"
+  "supported_by": "Supported by {logo}",
+  "sum": "sum",
+  "submit": "Confirm",
+  "all": {
+    "types": "All types",
+    "promotions": "All promotions"
+  },
+  "resend": "Resend",
+  "price": "Price",
+  "amount": "Amount",
+  "form": {
+    "login": "Login",
+    "broker_number": "Brokerage account",
+    "password": "Password",
+    "reenter_password": "Secure password",
+    "full_name": "Full name",
+    "birthdate": "Date of birth",
+    "passport": "Passport series and number or IINFL",
+    "email": "Email"
+  },
+  "breadcrumb": {
+    "login": "Add brokerage account",
+    "register": "Open brokerage account"
+  },
+  "no_offering_order": "You don't have any orders yet"
 }

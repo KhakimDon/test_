@@ -1,53 +1,50 @@
 <template>
   <label
-    class="transition group inline-flex items-center relative select-none min-h-[20px]"
     :class="disabled ? 'cursor-not-allowed' : 'cursor-pointer'"
     :style="{ minHeight: computedSize, '--btn-size': computedBtnSize }"
+    class="transition group flex-y-center relative select-none min-h-[20px] w-full pr-3"
   >
     <input
-      type="radio"
-      class="absolute opacity-0 invisible h-0 w-0 peer"
       :checked="modelValue === value"
+      class="absolute opacity-0 invisible h-0 w-0 peer"
+      type="radio"
       v-bind="{ name, value, disabled }"
       @change="handleChange"
     />
+
     <span
-      class="before:w-2.5 before:h-2.5 shrink-0 duration-200 ease-in-out bg-white peer-checked:before:opacity-100 mr-1.5 before:opacity-0 relative border-2 rounded-full box-border before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-200 border-gray-100 peer-disabled:before:bg-gray-100"
-      :class="[computedBtnStyles]"
+      :class="[computedBtnStyles, radioClass]"
       :style="{ width: computedSize, height: computedSize }"
+      class="before:w-3 before:h-3 shrink-0 duration-200 ease-in-out peer-checked:before:opacity-100 mr-1.5 before:opacity-0 relative border-2 rounded-full box-border before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-200 border-gray-100 peer-disabled:before:bg-gray-100 peer-checked:bg-primary before:bg-gray-100"
     />
-    <slot name="label">
-      <span
-        class="transition-200 text-base"
-        :class="[
-          labelStyles,
-          modelValue === value ? 'font-medium text-blue-100' : 'text-dark',
-        ]"
-      >
+    <slot>
+      <span :class="[labelStyles]" class="transition-200 text-base text-white">
         {{ label }}
       </span>
     </slot>
   </label>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from "vue";
 
 interface Props {
   modelValue: string | number | object;
   value?: string | number | object;
-  label: string | number | object;
+  label?: string | number | object;
   name?: string | number;
   disabled?: boolean;
   size?: string | number;
   btnStyles?: string;
   labelStyles?: string;
+  radioClass?: string;
 }
+
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
-  size: 20,
+  size: 24,
   btnStyles:
-    "before:bg-blue-100 group-hover:border-blue-100 peer-checked:border-blue-100 peer-checked:before:!bg-blue-100",
+    "group-hover:border-primary border-gray bg-gray-100 peer-checked:border-primary peer-checked:before:!bg-white",
 });
 
 const emit = defineEmits<{

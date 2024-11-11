@@ -1,97 +1,135 @@
 <template>
-  <div class="w-[335px]">
-    <p class="text-3xl leading-130 font-semibold text-dark text-center">
-      {{ $t("enter_system") }}
-    </p>
-
-    <div class="mt-8">
-      <SFormGroup class="mb-4" :label="$t('login')">
-        <SInput
-          :error="form.$v.value.name.$error"
-          v-model="form.values.name"
-          :placeholder="$t('enter_login')"
+  <form class="flex flex-col justify-between h-[calc(100vh-140px)] pt-2 pb-5">
+    <div class="flex flex-col gap-3">
+      <FFormGroup :label="$t('form.broker_number')">
+        <FSelect
+          v-model="form.values.brokerAccount"
+          :error="form.$v.value.brokerAccount?.$error"
+          :options="options"
+          :placeholder="$t('form.select_broker_account')"
+          :title="$t('form.broker_number')"
+          label-key="label"
+          value-key="value"
+          w
         />
-      </SFormGroup>
-      <SFormGroup :label="$t('password')">
-        <SInput
+      </FFormGroup>
+      <FFormGroup :label="$t('login')" for-text="login">
+        <FInput
+          id="login"
+          v-model="form.values.login"
+          :error="form.$v.value.login?.$error"
+          :mask-pattern="{ mask: '####################' }"
+          :placeholder="$t('form.enter_login')"
+        />
+      </FFormGroup>
+      <FFormGroup :label="$t('form.password')" for-text="password">
+        <FInput
+          id="password"
           v-model="form.values.password"
-          :error="form.$v.value.password.$error"
-          :placeholder="$t('enter_password')"
+          :error="form.$v.value.password?.$error"
+          :placeholder="$t('form.enter_password')"
           :type="isPassword ? 'password' : 'text'"
         >
           <template #suffix>
-            <SEyeToggle
-              class="translate-y-0.5"
+            <CEyeToggle
               :type-password="isPassword"
+              class="translate-y-0.5"
               @click="isPassword = !isPassword"
-              hover-color="#333"
             />
           </template>
-        </SInput>
-      </SFormGroup>
-      <vue-recaptcha
-        class="mt-5 mb-8 mx-auto"
-        ref="recaptcha"
-        :sitekey="siteKey"
-        @verify="verifyMethod"
-        @expired="expiredMethod"
-      />
-      <SButton
-        class="w-full"
-        :text="$t('login')"
-        @click="submit"
-        v-bind="{ loading }"
-        :disabled="!captchaToken"
-      />
+        </FInput>
+      </FFormGroup>
+      <FFormGroup :label="$t('form.secure_password')" for-text="sec-password">
+        <FInput
+          id="sec-password"
+          v-model="form.values.securePassword"
+          :error="form.$v.value.securePassword?.$error"
+          :placeholder="$t('form.enter_secure_password')"
+          :type="isPassword ? 'password' : 'text'"
+        >
+          <template #suffix>
+            <CEyeToggle
+              :type-password="isPassword"
+              class="translate-y-0.5"
+              @click="isPassword = !isPassword"
+            />
+          </template>
+        </FInput>
+      </FFormGroup>
     </div>
-  </div>
+    <CButton
+      :disabled="isBtnDisabled"
+      :text="$t('login')"
+      class="w-full"
+      type="button"
+      v-bind="{ loading }"
+      @click="submit"
+    />
+  </form>
 </template>
 
-<script setup lang="ts">
-import SButton from "@/components/Common/CButton.vue";
-import { ref, unref } from "vue";
-import { VueRecaptcha } from "vue-recaptcha";
-import SFormGroup from "@/components/Form/FGroup.vue";
-import SInput from "@/components/Form/Input/FInput.vue";
-import SEyeToggle from "@/components/Form/Input/CEyeToggle.vue";
-import { useI18n } from "vue-i18n";
-import { useCustomToast } from "@/composables/useCustomToast";
+<script lang="ts" setup>
+import { ref, unref, watch } from "vue";
+
 import { TForm } from "@/composables/useForm";
+
+import CButton from "@/components/Base/CButton.vue";
+import FFormGroup from "@/components/Form/FGroup.vue";
+import FInput from "@/components/Form/Input/FInput.vue";
+import CEyeToggle from "@/components/Form/Input/CEyeToggle.vue";
+import FSelect from "@/components/Form/FSelect.vue";
+import { options } from "@/data/fake";
 
 interface Props {
   form: TForm<any>;
 }
+
+interface Emits {
+  (e: "submit"): void;
+}
+
 const props = defineProps<Props>();
-const emit = defineEmits(["submit"]);
+const emit = defineEmits<Emits>();
 
 const { form } = unref(props);
 
-const siteKey = import.meta.env.VITE_APP_SITE_KEY;
-const { t } = useI18n();
-const { showToast } = useCustomToast();
-
-const captchaToken = ref();
 const loading = ref(false);
 const isPassword = ref(true);
-function verifyMethod(response: any) {
-  captchaToken.value = response;
-}
-function expiredMethod() {
-  captchaToken.value = null;
-}
+const isBtnDisabled = ref(true);
+
+watch(
+  () => form.values,
+  () => {
+    form.$v.value.$touch();
+    isBtnDisabled.value = form.$v.value.$invalid;
+  }
+);
 
 function submit() {
   form.$v.value.$touch();
-  if (captchaToken?.value) {
-    if (!form.$v.value.$invalid) {
-      loading.value = true;
-      setTimeout(() => {
-        emit("submit");
-        loading.value = false;
-      }, 1000);
-    }
-  } else {
-    showToast(t("check_captcha"), "error");
+  if (!form.$v.value.$invalid) {
+    loading.value = true;
+    setTimeout(() => {
+      emit("submit");
+      loading.value = false;
+    }, 1000);
   }
 }
+
+// CAPTCHA
+// <vue-recaptcha
+// ref="recaptcha"
+// :sitekey="siteKey"
+// class="mt-5 mb-8 mx-auto"
+// @expired="expiredMethod"
+// @verify="verifyMethod"
+//     />
+// import { VueRecaptcha } from "vue-recaptcha";
+// const siteKey = import.meta.env.VITE_APP_SITE_KEY;
+// function verifyMethod(response: any) {
+//   captchaToken.value = response;
+// }
+// function expiredMethod() {
+//   captchaToken.value = null;
+// }
 </script>
