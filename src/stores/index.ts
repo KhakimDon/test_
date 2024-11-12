@@ -15,7 +15,7 @@ interface IStore {
   stocks?: IResponse<IStock>;
   accountList?: Account[];
   accountDetail?: Portfolio; // sorry for mismatch name for now
-  loading: boolean;
+  loading: true;
   TopUpList: TopUpList[];
   withdrawalList: WithdrawalList[];
 }
@@ -43,6 +43,7 @@ export const useMainStore = defineStore("mainStore", {
     },
     fetchAccountList() {
       this.loading = true;
+      console.log(this.accountList)
       return new Promise<Account[] | undefined>((resolve, reject) => {
         api
           .$get<IResponse<Account>>("stock/AccountList")

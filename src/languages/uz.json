@@ -23,5 +23,7 @@
   "breadcrumb": {
     "login": "Brokerlik hisobini qo'shish",
     "register": "Brokerlik hisobini ochish"
-  }
+  },
+  "offer_empty_text": "Sizda arizalar yo'q",
+  "offer_empty_title": "Bu yerda sizning aktsiyalarni sotib olish bo'yicha arizalaringiz ko'rsatiladi"
 }

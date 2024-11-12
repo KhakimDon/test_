@@ -144,7 +144,6 @@
           />
         </template>
       </div>
-
       <Button class="mt-6 w-full" :text="$t('confirm')" />
     </BottomSheet>
   </section>
@@ -158,7 +157,7 @@ import BottomSheet from "@/components/CBottomSheet.vue";
 import SelectInvestment from "@/components/Common/Card/SelectInvestment.vue";
 import { useThemeMode } from "@/composables/useThemeMode";
 
-import { computed, ref, watch } from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import Button from "@/components/Base/CButton.vue";
 import { formatMoneyDecimal } from "@/utils";
 import { Account, Portfolio } from "@/modules/Main/types";

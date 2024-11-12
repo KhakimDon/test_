@@ -56,15 +56,21 @@
     <Transition mode="out-in">
       <div :key="loading">
         <div v-if="!loading">
-          <!--          <TransactionCard-->
-          <!--            v-for="(stock, id) in [...stocks, ...stocks]"-->
-          <!--            :key="stock.img"-->
-          <!--            v-bind="{ item: stock, isSaved: false, id: id }"-->
-          <!--            variant="drawallist"-->
-          <!--          />-->
+                    <TransactionCard
+                      v-for="(stock, id) in withdrawal"
+                      :key="stock.img"
+                      v-bind="{ item: stock, isSaved: false, id: id }"
+                      variant="drawallist"
+                    />
         </div>
         <div v-else>
           <Loadingtaransaction v-for="i in 8" :key="i" />
+        </div>
+        <div class="flex max-w-[350px] mx-auto flex-col mt-[56px] items-center justify-center" v-if="withdrawal.length == 0">
+          <nodatasold/>
+          <nodatasoldDark/>
+          <p class="mt-[10px] text-[16px] text-black font-helvetica">{{$t("offer_empty_title")}}</p>
+          <p class="text-center mt-[5px] font-helvetica text-gray text-[14px]">{{$t("offer_empty_text")}}</p>
         </div>
       </div>
     </Transition>
@@ -104,7 +110,10 @@ const fromDates = ref(t("from_date"));
 const toDates = ref(t("to_date"));
 import { useMainStore } from "@/stores";
 import { useHandleError } from "@/composables/useHandleError.ts";
+import Nodatasold from "@/components/Icon/nodatasold.vue";
 
+
+const TopUpList = ref([]);
 const { handleError } = useHandleError();
 function transformStock(stock: IStock): ITransactionCardProps {
   return {
@@ -145,6 +154,7 @@ const withdrawalList = async (): Promise<void> => {
     // istLoading.value = false;
   }
 };
+
 
 const openBottomSheet = (item: number) => {
   activeTab.value = item;

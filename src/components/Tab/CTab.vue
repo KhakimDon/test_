@@ -98,3 +98,6 @@ const variants = {
   },
 };
 </script>
+<style scoped>
+
+</style>

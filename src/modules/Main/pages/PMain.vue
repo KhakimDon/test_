@@ -25,7 +25,7 @@ import { Account, Portfolio, Story } from "@/modules/Main/types";
 import { useHandleError } from "@/composables/useHandleError";
 import { IResponse } from "@/types/common";
 import { useMainStore } from "@/stores";
-import Menu from "@/components/Shared/Menu.vue";
+// import Menu from "@/components/Shared/Menu.vue";
 
 const mainStore = useMainStore();
 const stories = ref<Story[] | undefined>([]);
@@ -40,6 +40,10 @@ const isStoryLoading = ref(true);
 const { handleError } = useHandleError();
 
 const getStories = async (): Promise<void> => {
+  if (stories.value && stories.value.length > 0) {
+    return;
+  }
+
   try {
     const res = await useApi().$get<IResponse<Story>>("/StoryNewsList/");
     stories.value = res?.results;
@@ -71,6 +75,10 @@ const getPortfolioDetail = async (id?: number): Promise<void> => {
 };
 
 const getAccountList = async (): Promise<void> => {
+  if (accountList.value && accountList.value.length > 0) {
+    return;
+  }
+
   try {
     accountList.value = await mainStore
       .fetchAccountList()
@@ -94,8 +102,10 @@ const getAccountList = async (): Promise<void> => {
   }
 };
 
+
+
 onMounted(() => {
-  getStories();
-  getAccountList();
+    getStories();
+    getAccountList()
 });
 </script>
