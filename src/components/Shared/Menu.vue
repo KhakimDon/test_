@@ -2,7 +2,7 @@
   <div
     class="fixed bottom-0 absolute-x z-100 dark:bg-dark bg-light left-0 right-0 w-full py-3 px-2 border-t dark:border-gray-600 border-light-100 max-w-phone"
   >
-    <div class="container !px-2">
+    <div class="container !px-2 !pb-[8px]">
       <nav class="flex items-center justify-between gap-5">
         <RouterLink
           v-for="({ label, route, icon }, idx) in menu"

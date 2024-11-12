@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <vue-bottom-sheet ref="myBottomSheet" @closed="emit('close')">
+    <vue-bottom-sheet :can-swipe="false" ref="myBottomSheet" @closed="emit('close')">
       <template #default>
         <div class="flex justify-between p-4">
           <div />
