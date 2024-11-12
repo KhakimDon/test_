@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-[#EBF0F5] dark:bg-[#141414] min-h-screen flex">
+  <div class="bg-[#EBF0F5] dark:bg-[#141414] min-h-[100%-50px]  flex">
 
-    <div class="w-full h-[calc(100vh-100px)]">
+    <div class="w-full h-full">
       <div class="h-full w-full">
         <div class="w-full h-full">
 <!--          hello -->
