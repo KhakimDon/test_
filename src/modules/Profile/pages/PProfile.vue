@@ -1,6 +1,6 @@
 <template>
   <!--begin::Navbar-->
-  <!--end::Navbar-->
+<!--  end::Navbar-->
   <router-view></router-view>
 </template>
 
