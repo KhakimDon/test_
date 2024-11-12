@@ -71,7 +71,7 @@ import Spinner from "@/components/Icon/Spinner.vue";
 import { useMainStore } from "@/stores";
 import { onMounted, watch } from "vue";
 import router from "@/router";
-import CTabTransactions from "@/components/Tab/CTabTransactions.vue";
+// import CTabTransactions from "@/components/Tab/CTabTransactions.vue";
 const currentTab =
   router.currentRoute.value.name == "purchased-spo"
     ? "purchased"
