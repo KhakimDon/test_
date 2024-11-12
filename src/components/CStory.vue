@@ -3,6 +3,7 @@
     class="h-screen w-full fixed top-0 left-0 z-[1000] bg-dark-600"
     v-if="show"
   >
+<!--    asdasd-->
     <Swiper
       v-if="stories?.length"
       :init="false"
