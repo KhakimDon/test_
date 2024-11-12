@@ -25,6 +25,7 @@ import { Account, Portfolio, Story } from "@/modules/Main/types";
 import { useHandleError } from "@/composables/useHandleError";
 import { IResponse } from "@/types/common";
 import { useMainStore } from "@/stores";
+import Menu from "@/components/Shared/Menu.vue";
 
 const mainStore = useMainStore();
 const stories = ref<Story[] | undefined>([]);
