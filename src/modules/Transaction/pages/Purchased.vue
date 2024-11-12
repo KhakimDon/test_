@@ -54,19 +54,21 @@
     </div>
 
     <Transition mode="out-in">
-      <div :key="loading">
+      <div class="relative">
         <div v-if="!loading">
-                    <TransactionCard
-                      v-for="(stock, id) in withdrawal"
-                      :key="stock.img"
-                      v-bind="{ item: stock, isSaved: false, id: id }"
-                      variant="drawallist"
-                    />
+                    <div class="showAllTransactions">
+                      <TransactionCard
+                          v-for="(stock, id) in withdrawal"
+                          :key="stock.img"
+                          v-bind="{ item: stock, isSaved: false, id: id }"
+                          variant="drawallist"
+                      />
+                    </div>
         </div>
-        <div v-else>
-          <Loadingtaransaction v-for="i in 8" :key="i" />
+        <div :class="{showAllTransactionsSkeleton: loading == false}" class="absolute  z-[999] opacity-1 duration-[.5s] top-0 w-[100%]">
+          <Loadingtaransaction v-for="i in 5" :key="i" />
         </div>
-        <div class="flex max-w-[350px] mx-auto flex-col mt-[56px] items-center justify-center" v-if="withdrawal.length == 0">
+        <div class="flex max-w-[350px] mx-auto flex-col mt-[56px] items-center justify-center" v-if="withdrawal.length == 0 && !loading">
           <nodatasold/>
           <nodatasoldDark/>
           <p class="mt-[10px] text-[16px] text-black font-helvetica">{{$t("offer_empty_title")}}</p>
@@ -177,3 +179,23 @@ onMounted(() => {
   withdrawalList();
 });
 </script>
+
+<style scoped>
+.showAllTransactions{
+  animation-name: showBlocks;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+.showAllTransactionsSkeleton{
+  opacity: 0;
+}
+@keyframes showBlocks {
+  0%{
+    opacity: 0 ;
+  }
+  100%{
+    opacity: 1 !important;
+  }
+}
+
+</style>

@@ -57,17 +57,20 @@
     </div>
 
     <Transition mode="out-in">
-      <div :key="loading">
-        <div v-if="!loading">
-          <TransactionCard
-            v-for="(stock, id) in TopUpList"
-            :key="stock.img"
-            v-bind="{ item: stock, id: id }"
-            variant="transaction"
-          />
+      <div class="relative" >
+
+        <div v-if="!loading" >
+          <div class="showAllTransactions">
+            <TransactionCard
+                v-for="(stock, id) in TopUpList"
+                :key="stock.img"
+                v-bind="{ item: stock, id: id }"
+                variant="transaction"
+            />
+          </div>
         </div>
-        <div v-else>
-          <Loadingtaransaction v-for="i in 8" :key="i" />
+        <div :class="{showAllTransactionsSkeleton: loading == false}" class="absolute  z-[999] opacity-1 duration-[.5s] top-0 w-[100%]">
+           <Loadingtaransaction v-for="i in 5" :key="i" />
         </div>
       </div>
     </Transition>
@@ -112,7 +115,7 @@ const showBottomSheet = ref(false);
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 const activeTab = ref();
-const loading = ref(false);
+const loading = ref(true);
 const fromDates = ref(t("from_date"));
 const toDates = ref(t("to_date"));
 
@@ -177,3 +180,22 @@ onMounted(() => {
   getTopUpList();
 });
 </script>
+<style scoped>
+.showAllTransactions{
+  animation-name: showBlocks;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+.showAllTransactionsSkeleton{
+  opacity: 0;
+}
+@keyframes showBlocks {
+  0%{
+    opacity: 0 ;
+  }
+  100%{
+    opacity: 1 !important;
+  }
+}
+
+</style>
