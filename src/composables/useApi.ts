@@ -20,7 +20,7 @@ export const useApi = (apiUrl?: string) => {
       ...options?.headers,
       "Device-Name": "X-Device-Name",
       "Device-Type": "Android",
-      Authorization:  "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNDIzNDY4LCJpYXQiOjE3MzE0MTI2NjgsImp0aSI6ImNiNmU3M2MwMmFlYjQ4NjhiYWE4M2NhNWE4ZGE0OWI0IiwidXNlcl9pZCI6ImY3YTMwMDI5LTUwZGMtNGFhMS1iYTM1LTMxOTFiMTExYzMyZiJ9.LsHe3x4C1WsfTCpiHnZ1FGEkXRStMhH2muejxX62m58",
+      Authorization:  "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNDQ0MjUyLCJpYXQiOjE3MzE0MzM0NTIsImp0aSI6IjI0MWJkNGUwZmQ1NTQzY2M5NGY0NDUzODgxZGUyMTk0IiwidXNlcl9pZCI6ImY3YTMwMDI5LTUwZGMtNGFhMS1iYTM1LTMxOTFiMTExYzMyZiJ9.ii_7ovpoXoTtCNNpvonTuEhypW-YP7UyK9FgQFiQYT4",
       "Device-Id": "X-Device-Id",
       "Account-Id": 412,
     });
