@@ -45,7 +45,7 @@
         </div>
       </SwiperSlide>
     </Swiper>
-    <div class="absolute bottom-6 right-6 z-10">
+    <div class="absolute bottom-12 right-6 z-10">
       <div class="flex-y-center gap-2">
         <button
           aria-label="Prev slide"
