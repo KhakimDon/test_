@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-dark bg-light">
+  <div>
     <RouterView v-slot="{ Component }">
       <div :key="detectLayout">
         <component :is="detectLayout">
@@ -13,33 +13,31 @@
 <script lang="ts" setup>
 import { computed, onBeforeMount, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import LDefault from "@/layout/Dashboard/LDefault.vue";
-import LError from "@/layout/Error/LError.vue";
-import LAuth from "@/layout/Auth/LAuth.vue";
-import LEmpty from "@/layout/Empty/LEmpty.vue";
-import { useThemeMode } from "@/composables/useThemeMode";
-import { useAuthStore } from "./modules/Auth/stores.ts";
+import LDefault from "@/layout/LDefault.vue";
+import LError from "@/layout/LError.vue";
+import LEmpty from "@/layout/LEmpty.vue";
 
 const route = useRoute();
 const layouts: { [key: string]: any } = {
   default: LDefault,
   error: LError,
-  auth: LAuth,
   empty: LEmpty,
 };
 
 const detectLayout = computed(() => {
   return layouts[route.meta.layout as string];
 });
-
-const { setTheme, theme } = useThemeMode();
-
-onBeforeMount(() => {
-  useAuthStore().getToken();
-});
-
-onMounted(() => {
-  document.documentElement.classList.add(theme.value);
-  setTheme("light");
-});
 </script>
+
+<style>
+.wrapper {
+  max-width: 1187px !important;
+  margin: auto !important;
+}
+@media screen and (max-width: 965px) {
+  .wrapper {
+    max-width: 95% !important;
+    margin: auto !important;
+  }
+}
+</style>

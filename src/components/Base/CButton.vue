@@ -1,3 +1,4 @@
+
 <template>
   <button
     :class="[
@@ -8,7 +9,7 @@
       },
     ]"
     :disabled="disabled"
-    class="rounded-lg relative transition-300 active:scale-95 leading-6 disabled:bg-[#CDCFDE] disabled:text-disabled-text dark:disabled:bg-disabled font-euclid"
+    class="rounded-lg relative  transition-300 active:scale-95 leading-6 disabled:bg-[#CDCFDE] disabled:text-disabled-text dark:disabled:bg-disabled font-euclid"
   >
     <span
       :class="[
@@ -75,10 +76,10 @@ const props = withDefaults(defineProps<Props>(), {
 const variants = computed(
   (): Record<TButtonVariants, string> => ({
     primary: !props?.disabled
-      ? "bg-[#0077FF] text-white"
+      ? "bg-[red] text-white"
       : "bg-gray text-disabled-text pointer-events-none",
     secondary: "bg-gray text-white hover:bg-gray",
-    outline: "border bg-transparent",
+    outline: "border bg-transparent hover:bg-primary duration-300",
     gray: "bg-gray-100 text-disabled-text",
     danger: "bg-red-gradient",
   })

@@ -1,56 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import MainRoutes from "@/modules/Main/routes";
-import AuthRoutes from "@/modules/Auth/routes";
-import ProfileRoutes from "@/modules/Profile/routes";
-import PortfolioRoutes from "@/modules/Portfolio/routes";
-import MarketRoutes from "@/modules/Market/routes";
-import WithdrawRoutes from "@/modules/Withdraw/routes";
+import ServicesRoutes from "@/modules/Services/routes";
+import ProductsRoutes from "@/modules/Products/routes";
+import AboutRoutes from "@/modules/About/routes";
+import ContactsRoutes from "@/modules/Contacts/routes";
 
 const routes: Array<RouteRecordRaw> = [
   ...MainRoutes,
-  ...AuthRoutes,
-  ...ProfileRoutes,
-  ...PortfolioRoutes,
-  ...MarketRoutes,
-  ...WithdrawRoutes,
-  {
-    path: "/demo",
-    name: "PDemo",
-    meta: {
-      layout: "default",
-    },
-    component: () => import("@/modules/Demo.vue"),
-  },
-  {
-    path: "/transactions",
-    name: "PIndex",
-    meta: {
-      layout: "default",
-    },
-    component: () => import("@/modules/Transaction/pages/PIndex.vue"),
-    children: [
-      {
-        // UserProfile will be rendered inside User's <router-view>
-        // when /user/:id/profile is matched
-        path: '',
-        name:"sold-spo",
-        component: () => import("@/modules/Transaction/pages/PSold.vue"),
-      },
-      {
-        // UserPosts will be rendered inside User's <router-view>
-        // when /user/:id/posts is matched
-        name:"purchased-spo",
-        path: 'purchased-spo',
-        component: () => import("@/modules/Transaction/pages/Purchased.vue")
-      },
-    ],
-  },
+  ...ServicesRoutes,
+  ...ProductsRoutes,
+  ...AboutRoutes,
+  ...ContactsRoutes,
+  // this is for 404 page
   {
     path: "/:pathMatch(.*)*",
     meta: {
       layout: "error",
     },
-    component: () => import("@/layout/Error/LError.vue"),
+    component: () => import("@/layout/LError.vue"),
   },
 ];
 const router = createRouter({

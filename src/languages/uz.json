@@ -1,29 +1,10 @@
 {
-  "hello": "Hello",
-  "supported_by": "Supported by {logo}",
-  "sum": "so'm",
-  "submit": "Tasdiqlash",
-  "all": {
-    "types": "Barcha turlar",
-    "promotions": "Barcha aksiyalar"
-  },
-  "resend": "Qayta jo'natish",
-  "price": "Narxi",
-  "amount": "Miqdori",
-  "form": {
-    "login": "Kirish",
-    "broker_number": "Brokerlik hisobi",
-    "password": "Parol",
-    "reenter_password": "Parolni qayta kiriting",
-    "full_name": "To'liq ism",
-    "birthdate": "Tug'ilgan sana",
-    "passport": "Passport seriyasi va raqami yoki IINFL",
-    "email": "Elektron pochta"
-  },
-  "breadcrumb": {
-    "login": "Brokerlik hisobini qo'shish",
-    "register": "Brokerlik hisobini ochish"
-  },
-  "offer_empty_text": "Sizda arizalar yo'q",
-  "offer_empty_title": "Bu yerda sizning aktsiyalarni sotib olish bo'yicha arizalaringiz ko'rsatiladi"
+  "hello": "Salom",
+  "nav": {
+    "home": "Bosh sahifa",
+    "services": "Xizmatlar",
+    "products": "Produktlar",
+    "about": "Dastur haqida",
+    "contacts": "Kontaktlar"
+  }
 }

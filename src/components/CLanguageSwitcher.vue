@@ -4,13 +4,17 @@
       <div
         class="transition-300 flex items-center justify-between gap-1 bg-white group pl-4 p-1 rounded-md"
       >
-        <div class="flex-y-center space-x-1 text-blue-100">
-          <i class="icon-language flex-center text-base h-4"></i>
+        <div class="flex items-center gap-1 justify-betweenn w-full space-x-1 text-black">
+          <img
+            :src="`/src/assets/svg/flags/${useI18n().locale.value}.svg`"
+            alt="flag"
+            class="w-4 h-4"
+          />
           <span class="text-[13px] leading-[123%]">
             {{ currentLanguage?.label }}
           </span>
           <i
-            class="icon-chevron transition-200 text-xs inline-block"
+            class="icon-chevron-down1 transition-200 text-xs inline-block"
             :class="{ 'rotate-180': show }"
           ></i>
         </div>
@@ -21,13 +25,18 @@
       <li
         v-for="(item, index) in languages"
         :key="index"
-        class="transition-200 p-3 text-sm text-dark hover:bg-white-100/[0.24] flex-center-between"
+        class="transition-200 p-3 text-sm text-dark hover:bg-white-100/[0.24] flex justify-start items-center"
         @click="changeLocale(item.value)"
       >
+        <img
+          :src="`/src/assets/svg/flags/${item.value}.svg`"
+          alt="flag"
+          class="w-4 h-4 mr-1"
+        />
         <span>{{ item.label }}</span>
         <i
           v-if="item.value === currentLanguage?.value"
-          class="icon-tick text-blue-100"
+          class="icon-arrow text-blue-100"
         ></i>
       </li>
     </ul>
@@ -38,6 +47,7 @@
 import { computed } from "vue";
 import CDropdown from "@/components/Common/CDropdown.vue";
 import { ELanguage, ILanguage } from "@/types/components/languageSwitcher";
+import { useI18n } from "vue-i18n";
 
 const languages: ILanguage[] = [
   {

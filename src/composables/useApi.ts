@@ -5,14 +5,16 @@ import axios, {
   CreateAxiosDefaults,
 } from "axios";
 import { ref } from "vue";
-import { generateFingerprint } from "../utils";
+// import { generateFingerprint } from "../utils";
 
+// use this if you need authorization
 // import { useAuthStore } from "~/modules/auth/store";
 
 export const useApi = (apiUrl?: string) => {
   const baseURL = apiUrl || (import.meta.env.VITE_APP_API_URL as string);
   const loading = ref(false);
 
+  // use this if you need authorization
   // const authStore = useAuthStore();
 
   function $service(options?: CreateAxiosDefaults): AxiosInstance {
@@ -20,7 +22,7 @@ export const useApi = (apiUrl?: string) => {
       ...options?.headers,
       "Device-Name": "X-Device-Name",
       "Device-Type": "Android",
-      Authorization:  "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzMxNDg3NjcwLCJpYXQiOjE3MzE0NzY4NzAsImp0aSI6IjhjYmE2MTRlYzdmYzQ4NmJiYjJiZjNjNDA3ZTA0YWY3IiwidXNlcl9pZCI6ImY3YTMwMDI5LTUwZGMtNGFhMS1iYTM1LTMxOTFiMTExYzMyZiJ9.0G2wrR9N2Uy9GmkHuuWYtUO6LHc01GPwVf5aX3rU_FQ",
+      Authorization:  "Bearer " + "",
       "Device-Id": "X-Device-Id",
       "Account-Id": 412,
     });

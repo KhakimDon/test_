@@ -1,28 +1,76 @@
 {
   "hello": "Hello",
-  "supported_by": "Supported by {logo}",
-  "sum": "sum",
-  "submit": "Confirm",
-  "all": {
-    "types": "All types",
-    "promotions": "All promotions"
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "products": "Products",
+    "about": "About",
+    "contacts": "Contacts"
   },
-  "resend": "Resend",
-  "price": "Price",
-  "amount": "Amount",
-  "form": {
-    "login": "Login",
-    "broker_number": "Brokerage account",
-    "password": "Password",
-    "reenter_password": "Secure password",
-    "full_name": "Full name",
-    "birthdate": "Date of birth",
-    "passport": "Passport series and number or IINFL",
-    "email": "Email"
+  "first": {
+    "sub": "IT consulting from the heart of Europe",
+    "title": "Automation- Zentric",
+    "text": "Founded in 2023, we have over 30 years of experience in various industries and areas of information technology. Our Services include tailored IT solutions and consulting aimed at increasing efficiency and performance for our customers and seamlessly connecting with the company's business objectives.",
+    "contacts": "Связаться с нами",
+    "about": "Подробнее о нас"
   },
-  "breadcrumb": {
-    "login": "Add brokerage account",
-    "register": "Open brokerage account"
+  "contact_us": "Contact us",
+  "more_about_us": "Learn more",
+  "second_section": {
+    "title": "Our expertise",
+    "sub": "We provide a number of significant benefits to our customers.",
+    "soft": "Software Development",
+    "cloud": "Cloud Technologies",
+    "solution": "Solution Architecture",
+    "agile": "Agile transformation",
+    "data": "Data Management"
   },
-  "no_offering_order": "You don't have any orders yet"
+  "product_section": {
+    "title": "Our product",
+    "sub": "We provide a number of significant benefits to our customers."
+  },
+  "updog": {
+    "title": "Central management of In-Place Upgrades for Linux systems",
+    "text": "It is a tool written in Python that makes it easy to run a local HTTP server for file sharing. With it, you can quickly share files by providing access to a specific folder through a web browser."
+  },
+  "moreinfo": "More info",
+  "pages": {
+    "navigation": "Navigation",
+    "home": "Home",
+    "Services": "Services",
+    "Products": "Products",
+    "About_us": "About us",
+    "Contacts": "Contacts"
+  },
+  "footer": { 
+    "phone": "Our phone number:",
+    "mail": "Our email:",
+    "address": "Our address:"
+  },
+  "services": {
+    "title": "Our services",
+    "sub": "Individualized consultation, as each use case is unique."
+  },
+  "service_translates":{
+    "dev": {
+      "title": "Software Development",
+      "sub": "With over 30 years of experience in all areas of software development, we craft innovative and robust software solutions tailored to the individual needs of our clients. From concept to implementation, we follow a meticulous development process to ensure the delivery of high-quality software."
+    },
+    "cloud": {
+      "title": "Cloud Technologies",
+      "sub": "We understand the transformative power of the cloud and apply this knowledge to develop customized cloud solutions that drive digital transformation. From cloud design to ongoing optimization of leading cloud platforms, we assist our clients in fully harnessing the benefits of the cloud and efficiently achieving their business objectives."
+    },
+    "solution": {
+      "title": "Solution Architecture",
+      "sub": "Well-designed architecture forms the foundation for the success of IT projects. From the initial concept to implementation, we emphasize precision and scalability to assist our clients in overcoming their business challenges and sustainably implementing effective IT strategies."
+    },
+    "agile": {
+      "title": "Agile Transformation",
+      "sub": "Agility is not just a method but a cultural change. We promote flexibility, collaboration, and continuous improvement by introducing agile practices and integrating them permanently into the corporate culture. In doing so, we support our clients in strengthening their innovation capabilities, responding more quickly to market changes, and achieving sustainable competitive advantages."
+    },
+    "data": {
+      "title": "Data Management",
+      "sub": "In an era where data science is gaining increasing importance, we acknowledge the crucial role of effective data management. From data capture to storage and analysis, we place great emphasis on the highest quality and integrity. We assist our clients in generating real value from their data, gaining innovative insights, and strengthening their competitiveness."
+    }
+  }
 }

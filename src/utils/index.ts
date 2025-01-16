@@ -74,7 +74,7 @@ const cTimeout = (key = "key") => {
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
+// solution for debounce function with api
 export const debounce = (key = "key", fn = () => {}, timeout = 500) => {
   const sTimeout = (key: string, fn: () => void, timeout: number) => {
     cTimeout(key);
@@ -99,35 +99,3 @@ export const scrollTo = (y?: number) => {
     behavior: "smooth",
   });
 };
-
-export function generateFingerprint() {
-  let visitorId = window.localStorage.getItem("visitorId");
-  if (!visitorId) {
-    visitorId = generateUUID();
-    window.localStorage.setItem("visitorId", visitorId);
-  }
-  return visitorId;
-}
-
-export function generateUUID() {
-  // Public Domain/MIT
-  let d = new Date().getTime(); // Timestamp
-  let d2 =
-    (typeof performance !== "undefined" &&
-      performance.now &&
-      performance.now() * 1000) ||
-    0; // Time in microseconds since pages-load or 0 if unsupported
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    let r = Math.random() * 16; // random number between 0 and 16
-    if (d > 0) {
-      // Use timestamp until depleted
-      r = (d + r) % 16 | 0;
-      d = Math.floor(d / 16);
-    } else {
-      // Use microseconds since pages-load if supported
-      r = (d2 + r) % 16 | 0;
-      d2 = Math.floor(d2 / 16);
-    }
-    return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
-  });
-}
