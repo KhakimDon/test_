@@ -11,13 +11,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onBeforeMount, onMounted } from "vue";
+import { computed, onBeforeMount, onMounted, watch  } from "vue";
 import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import LDefault from "@/layout/LDefault.vue";
 import LError from "@/layout/LError.vue";
 import LEmpty from "@/layout/LEmpty.vue";
 
 const route = useRoute();
+const router = useRouter();
 const layouts: { [key: string]: any } = {
   default: LDefault,
   error: LError,
@@ -26,6 +28,17 @@ const layouts: { [key: string]: any } = {
 
 const detectLayout = computed(() => {
   return layouts[route.meta.layout as string];
+});
+
+watch(
+  () => router.currentRoute.value,
+  () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+);
+
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 </script>
 
