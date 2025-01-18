@@ -1,7 +1,7 @@
 <template>
   <label
     :class="[
-      'transition-200 h-[45px] inline-flex items-center justify-start relative bg-[#F2F2F2] dark:bg-gray-800 rounded-lg border dark:border-gray-700 border-white-300 overflow-hidden w-full py-[11px] px-3 gap-x-2',
+      'transition-200 inline-flex items-center justify-start relative bg-[#F2F2F2] dark:bg-gray-800 rounded-lg border dark:border-gray-700 border-white-300 overflow-hidden w-full py-[11px] px-3 gap-x-2',
       error
         ? '!dark:border-pink'
         : 'focus-within:border-blue focus-within:dark:border-blue',
@@ -12,12 +12,12 @@
     <span :class="[prefixClass]">
       <slot name="prefix" />
     </span>
-    <input
+    <textarea
       ref="kInput"
       v-maska="maskPattern"
       :class="[
         inputClass,
-        'font-normal bg-[#F2F2F2] text-sm leading-130 placeholder:text-gray-400 text-dark focus-within:text-dark dark:text-white dark:!bg-[#34353F] flex-grow outline-none transition-200 w-full h-full',
+        'font-normal h-[112px] bg-[#F2F2F2] text-sm leading-130 placeholder:text-gray-400 text-dark focus-within:text-dark dark:text-white dark:!bg-[#34353F] flex-grow outline-none transition-200 w-full ',
       ]"
       :readonly="!autocomplete"
       :value="modelValue"

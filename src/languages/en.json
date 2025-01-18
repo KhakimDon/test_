@@ -42,7 +42,7 @@
     "About_us": "About us",
     "Contacts": "Contacts"
   },
-  "footer": { 
+  "footer": {
     "phone": "Our phone number:",
     "mail": "Our email:",
     "address": "Our address:"
@@ -51,7 +51,7 @@
     "title": "Our services",
     "sub": "Individualized consultation, as each use case is unique."
   },
-  "service_translates":{
+  "service_translates": {
     "dev": {
       "title": "Software Development",
       "sub": "With over 30 years of experience in all areas of software development, we craft innovative and robust software solutions tailored to the individual needs of our clients. From concept to implementation, we follow a meticulous development process to ensure the delivery of high-quality software."
@@ -72,5 +72,106 @@
       "title": "Data Management",
       "sub": "In an era where data science is gaining increasing importance, we acknowledge the crucial role of effective data management. From data capture to storage and analysis, we place great emphasis on the highest quality and integrity. We assist our clients in generating real value from their data, gaining innovative insights, and strengthening their competitiveness."
     }
+  },
+  "updog_page": {
+    "title": "OS Upgrade",
+    "sub": "A reliable and efficient solution for upgrading Linux systems across multiple hosts and environments.",
+    "problem": {
+      "title": "The Problem?",
+      "sub": "RHEL 7 maintenance support ends on June 30, 2024.",
+      "problems": {
+        "1": "Higher OpEx",
+        "2": "Limited Support",
+        "3": "Reduced Stability",
+        "4": "Security Risks",
+        "5": "Compatibility Issues",
+        "6": "Compliance Concerns"
+      }
+    },
+    "cards": {
+      "title": "Current tools offer no centralized solution to upgrade OS infrastructure efficiently.",
+      "1": {
+        "title": "Long Upgrade Times",
+        "sub": "Upgrades can range from months to years, depending on the size of the infrastructure."
+      },
+      "2": {
+        "title": "High Manual Workload",
+        "sub": "Organizations may require additional experts, leading to elevated costs."
+      },
+      "3": {
+        "title": "Likelihood for Inconsistencies",
+        "sub": "Repetitive manual tasks are prone to human errors and may result in operational issues."
+      },
+      "4": {
+        "title": "Lack of Documentation",
+        "sub": "Current tools offer no comprehensive reports that provide a clear audit trail for accountability."
+      }
+    }
+  },
+  "tools": "Current tools offer no centralized solution to upgrade OS infrastructure efficiently.",
+  "cards": {
+    "time": {
+      "title": "Long Upgrade Times",
+      "sub": "Upgrades can range from months to years, depending on the size of the infrastructure."
+    },
+    "workload": {
+      "title": "High Manual Workload",
+      "sub": "Organizations may require additional experts, leading to elevated costs."
+    },
+    "inconsistencies": {
+      "title": "Likelihood for Inconsistencies",
+      "sub": "Repetitive manual tasks are prone to human errors and may result in operational issues."
+    },
+    "documentation": {
+      "title": "Lack of Documentation",
+      "sub": "Current tools offer no comprehensive reports that provide a clear audit trail for accountability."
+    }
+  },
+  "work": {
+    "title": "How does upDog work?",
+    "sub": "The entire upgrade process, unified within one solution.",
+    "text": "Modular architecture integrating seamlessly with existing IT infrastructures."
+  },
+  "why_us": {
+    "title": "Why upDog?",
+    "sub": "Designed to centrally manage upgrades, providing efficiency, scalability, and maintainability.",
+    "1": "Simple & Easy to Use GUI",
+    "2": "Parallel Upgrade Execution",
+    "3": "Credentials Management",
+    "4": "Reduction of manual errors",
+    "5": "PDF Report for every Inhibitor",
+    "6": "Modular architecture",
+    "7": "Host Inventory Management",
+    "8": "Reduced upgrade times",
+    "9": "Fixed price per host for reports",
+    "10": "Auditability and Logging"
+  },
+  "about": {
+    "title": "About Us",
+    "sub": "A reliable and efficient solution for upgrading Linux systems across multiple hosts and environments.",
+    "text": "At automation-Zentric, we go beyond simple consultation and foster long-term partnerships. We deliver customized solutions that not only enhance efficiency but also seamlessly align with the business goals of our clients. We accompany you on your journey of technological progress, where experience meets innovation to elevate your company to new heights.",
+    "team": "Our Team",
+    "team_info":{
+      "ceo": "Founder & CEO",
+      "founder": "Founder",
+      "arch": "Solution Architect"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "sub": "Contact us using the methods below, you can contact us.",
+    "address": "Address:",
+    "phone": "Pphone number:",
+    "mail": "Email:",
+    "address_item": "Hansaallee 82 60318 Frankfurt am Main Germany",
+    "phone_item": "+49 (0)69 20732814",
+    "mail_item": "office@automation-zentric.de",
+    "question": "For any questions",
+    "quesiton_sub": "Leave a request and we will contact you soon.",
+    "your_name": "Full name",
+    "your_email": "Email",
+    "your_phone": "Phone number",
+    "your_message": "Message",
+    "submit": "Send"
   }
 }
