@@ -1,7 +1,7 @@
 <template>
   <div :class="$attrs.class" class="flex flex-col gap-3 w-full">
-    <div class="flex-center-between w-full">
-      <Label :class="labelClass" v-bind="{ for: forText, label }" />
+    <div class="flex-center-between w-full mb-[-5px]">
+      <Label :class="labelClass" class="label-class" v-bind="{ for: forText, label }" />
       <slot name="labelOpposite" />
     </div>
     <slot />
@@ -26,3 +26,11 @@ withDefaults(defineProps<Props>(), {
   rightLabel: false,
 });
 </script>
+
+<style scoped>
+.label-class{
+  color: black;
+  font-weight: medium;
+  font-size: 16px;
+}
+</style>
